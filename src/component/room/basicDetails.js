@@ -55,15 +55,15 @@ class BasicDetails extends React.Component {
 
     return (
       <form autoComplete="off" style={{textAlign:'left'}}>
-        <FormControl className={classes.formControl}>
+        <FormControl className={classes.formControl} style={{width:'25%'}}>
         
         <TextField
             required
-            id="filled-required"
+            id="standard-required"
             label="Listing reference name/number"
             className={classes.textField}
             margin="normal"
-            variant="filled"
+            variant="standard"
         />
         <TextField
             id="standard-select-type"

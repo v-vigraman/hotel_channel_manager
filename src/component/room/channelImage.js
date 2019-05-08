@@ -82,33 +82,8 @@ class ChannelImage extends React.Component {
         <CardHeader
           title={this.props.imageDetails.name}
         />
-        <CardMedia
-          className={classes.media}
-          image={this.props.imageDetails.url}
-          title=""
-        />
         <CardContent style={{padding:'0px',textAlign:'left'}}>
 
-        <TextField 
-              style={{marginTop:'0px',marginBottom:'0px',marginLeft:'5px'}}
-              id="standard-rate"
-              label="Basic Night"
-              type='number'
-              value={this.state.basicRate}
-              className={classes.textField}
-              margin="normal"
-            />
-
-            <TextField
-              style={{marginTop:'0px',marginBottom:'0px',marginLeft:'5px'}}
-              id="standard-rate"
-              label="Channel Rate"
-              type='number'
-              value={this.state.channelRate}
-              onChange={(e) => this.handleChannelRates(e,this.props.imageDetails.name)}
-              className={classes.textField}
-              margin="normal"
-            />
           
         </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>

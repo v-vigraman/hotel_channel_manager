@@ -6,16 +6,25 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
-import ChannelImage from './channelImage'
+import FormControl from '@material-ui/core/FormControl';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import Edit from '@material-ui/icons/Edit';
+import classnames from 'classnames';
+import Delete from '@material-ui/icons/Delete';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Divider from '@material-ui/core/Divider';
+
+
 const styles = theme => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    width: 200,
   },
   dense: {
     marginTop: 19,
@@ -25,12 +34,19 @@ const styles = theme => ({
   },
   formTemplate:{
 
+  },
+  align:{
+    width:'30%'
   }
 });
 
 const floors = ['1','2','3','4','5','6','7'];
 
 const rooms = ['1','2','3','4','5','6','7'];
+
+const kitchens = [1,2,3,4,5]
+
+const kitchenFacilities=['Kitchenette','Open plan kitchen','Outdoor kitchen','Separate kitchen'];
 
 const currencies = [
     {
@@ -57,156 +73,297 @@ const currencies = [
 
 class Creation extends React.Component {
   state = {
-    name: '',
-    floor: '1',
-    room: '1',
-    currency: 'INR',
-    basicRate: 0,
-    channel:[{
-        name:"",
-        description:"",
-        url:""
-    }]
-    
+    dining:true,
+  };
+
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.checked });
   };
 
   constructor(props){
       super(props);
   }
 
-  handleImageURL = e => {
-    this.setState({ url: e.target.value });
-    
-  }
-
-
-
-  handleName = e =>{
-    this.setState({ name: e.target.value });
-    
-  }
-
-  handleDescription = e =>{
-    this.setState({ description: e.target.value });
-
-  }
-
-  handleFloor = e =>{
-    this.setState({ floor: e.target.value });
-  }
-
-  handleRoom = e =>{
-    this.setState({ room: e.target.value });
-  }
-
-  handleBasicRates = e =>{
-    this.setState({ basicRate: e.target.value });
-
-  }
-
-  handleCurrency = e =>{
-    this.setState({ currency: e.target.value });
-  }
-
   render() {
     const { classes } = this.props;
+    let bedRoom=[];
+    for (let i=1;i<18;i++){
+      bedRoom.push(i);
+    }
 
     return (
-        <div>
-      <form className={classNames(classes.container, classes.formTemplate)} noValidate autoComplete="off">
-        <TextField
-          id="standard-name"
-          label="Name of the Hotel"
-          value={this.state.name}
-          onChange={(e) => this.handleName(e)}
-          className={classes.textField}
-          margin="normal"
-        />
+      <div style={{width:"50%"}}>
+      <form className={classNames(classes.container, classes.formTemplate)} style={{textAlign:"left",marginBottom:"2%"}} noValidate autoComplete="off">
+        <FormControl className={classes.formControl} style={{width:'100%'}}>
+          <div style={{marginRight:'6%',width:'50%'}}>
+              <TextField
+                  required
+                  select
+                  id="standard-required"
+                  label="Number of bedrooms"
+                  className={classes.textField}
+                  margin="normal"
+                  style={{width:'100%'}}
+                  variant="standard"
+              >
+              {bedRoom.map(option => (
+                  <MenuItem key={option} value={option}>
+                      {option}
+                  </MenuItem>
+              ))}
+              </TextField>
+          </div>
+          <div style={{marginRight:'6%',width:'50%'}}>
+          <Card  style={{width:"100%"}}>
+            <CardHeader
+              title="Bedroom 1"
+            />
+            <CardContent>
+              <Typography component="p">
+              Living room
 
-        <TextField
-          id="standard-select-floor"
-          select
-          label="Floor in a building"
-          className={classes.textField}
-          value={this.state.floor}
-          onChange={(e) => this.handleFloor(e)}
+              Bunk-bed, 2 x Double bed
+              </Typography>
+            </CardContent>
+            <CardActions className={classes.actions} disableActionSpacing>
+              <IconButton aria-label="edit">
+                <Edit />
+              </IconButton>
+              <IconButton className={classnames(classes.expand, {
+                  [classes.expandOpen]: this.state.expanded,
+                })}
+                onClick={this.handleExpandClick}
+                aria-expanded={this.state.expanded}
+                aria-label="Show more"
+              >
+                <Delete/>
+              </IconButton>
+            </CardActions>
+          </Card>
+          </div>
+          <div style={{marginRight:'6%',width:'50%'}}>
+              <TextField
+                  required
+                  select
+                  id="standard-required"
+                  label="Number of Bathrooms"
+                  className={classes.textField}
+                  margin="normal"
+                  style={{width:'100%'}}
+                  variant="standard"
+              >
+              {bedRoom.map(option => (
+                  <MenuItem key={option} value={option}>
+                      {option}
+                  </MenuItem>
+              ))}
+              </TextField>
+          </div>
+          <div style={{marginRight:'6%',width:'50%'}}>
+          <Card  style={{width:"100%"}}>
+            <CardHeader
+              title="Bathroom 1"
+            />
+            <CardContent>
+              <Typography component="p">
+              Full bathroom
 
-          SelectProps={{
-            MenuProps: {
-              className: classes.menu,
-            },
-          }}
-          margin="normal"
-        >
-          {floors.map(option => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </TextField>
-
-        <TextField
-          id="standard-select-room"
-          select
-          label="Rooms in a Floor"
-          className={classes.textField}
-          value={this.state.room}
-          onChange={(e) => this.handleRoom(e)}
-
-          SelectProps={{
-            MenuProps: {
-              className: classes.menu,
-            },
-          }}
-          margin="normal"
-        >
-          {rooms.map(option => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </TextField>
-
-        <TextField
-          id="standard-select-currency"
-          select
-          label="Select Currency Type"
-          className={classes.textField}
-          value={this.state.currency}
-          onChange={(e) => this.handleCurrency(e)}
-
-          SelectProps={{
-            MenuProps: {
-              className: classes.menu,
-            },
-          }}
-          margin="normal"
-        >
-          {currencies.map(option => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-
-        <TextField
-          id="standard-rate"
-          label="Basic Night"
-          type='number'
-          value={this.state.basicRate}
-          onChange={(e) => this.handleBasicRates(e)}
-          className={classes.textField}
-          margin="normal"
-        />
-
+              Toilet, Shower over bath, Standard bath
+              </Typography>
+            </CardContent>
+            <CardActions className={classes.actions} disableActionSpacing>
+              <IconButton aria-label="edit">
+                <Edit />
+              </IconButton>
+              <IconButton className={classnames(classes.expand, {
+                  [classes.expandOpen]: this.state.expanded,
+                })}
+                onClick={this.handleExpandClick}
+                aria-expanded={this.state.expanded}
+                aria-label="Show more"
+              >
+                <Delete/>
+              </IconButton>
+            </CardActions>
+          </Card>
+          </div>
+          <div style={{marginRight:'6%',width:'50%'}}>
+              <TextField
+                  required
+                  select
+                  id="standard-required"
+                  label="Number of Kitchens"
+                  className={classes.textField}
+                  margin="normal"
+                  style={{width:'100%'}}
+                  variant="standard"
+              >
+              {kitchens.map(option => (
+                  <MenuItem key={option} value={option}>
+                      {option}
+                  </MenuItem>
+              ))}
+              </TextField>
+          </div>
+          <div style={{marginRight:'6%',width:'50%'}}>
+              <TextField
+                  required
+                  select
+                  id="standard-required"
+                  label="Kitchen 1"
+                  className={classes.textField}
+                  margin="normal"
+                  style={{width:'100%'}}
+                  variant="standard"
+              >
+              {kitchenFacilities.map(option => (
+                  <MenuItem key={option} value={option}>
+                      {option}
+                  </MenuItem>
+              ))}
+              </TextField>
+          </div>
+          <h3>Other Rooms</h3>
+          <Divider component="li" />
+          <div style={{marginRight:'6%',width:'75%'}}>
+            <FormControlLabel className={classes.align}
+              control={
+                <Checkbox
+                  checked={this.state.checkedB}
+                  onChange={this.handleChange('dining')}
+                  value="checkedB"
+                  color="primary"
+                />
+              }
+              label="Dining Room"
+            />
+            <FormControlLabel className={classes.align}
+              control={
+                <Checkbox
+                  checked={this.state.checkedB}
+                  onChange={this.handleChange('dining')}
+                  value="checkedB"
+                  color="primary"
+                />
+              }
+              label="Drying Room"
+            />
+            <FormControlLabel className={classes.align}
+              control={
+                <Checkbox
+                  checked={this.state.checkedB}
+                  onChange={this.handleChange('dining')}
+                  value="checkedB"
+                  color="primary"
+                />
+              }
+              label="Eating area"
+            />
+            <FormControlLabel className={classes.align}
+              control={
+                <Checkbox
+                  checked={this.state.checkedB}
+                  onChange={this.handleChange('dining')}
+                  value="checkedB"
+                  color="primary"
+                />
+              }
+              label="Fitness room"
+            />
+            <FormControlLabel className={classes.align}
+              control={
+                <Checkbox
+                  checked={this.state.checkedB}
+                  onChange={this.handleChange('dining')}
+                  value="checkedB"
+                  color="primary"
+                />
+              }
+              label="Games Room"
+            />
+            <FormControlLabel className={classes.align}
+              control={
+                <Checkbox
+                  checked={this.state.checkedB}
+                  onChange={this.handleChange('dining')}
+                  value="checkedB"
+                  color="primary"
+                />
+              }
+              label="Hall"
+            />
+            <FormControlLabel className={classes.align}
+              control={
+                <Checkbox
+                  checked={this.state.checkedB}
+                  onChange={this.handleChange('dining')}
+                  value="checkedB"
+                  color="primary"
+                />
+              }
+              label="Laundry"
+            />
+            <FormControlLabel className={classes.align}
+              control={
+                <Checkbox
+                  checked={this.state.checkedB}
+                  onChange={this.handleChange('dining')}
+                  value="checkedB"
+                  color="primary"
+                />
+              }
+              label="Office"
+            />
+            <FormControlLabel className={classes.align}
+              control={
+                <Checkbox
+                  checked={this.state.checkedB}
+                  onChange={this.handleChange('dining')}
+                  value="checkedB"
+                  color="primary"
+                />
+              }
+              label="Library"
+            />
+            <FormControlLabel className={classes.align}
+              control={
+                <Checkbox
+                  checked={this.state.checkedB}
+                  onChange={this.handleChange('dining')}
+                  value="checkedB"
+                  color="primary"
+                />
+              }
+              label="Pantry"
+            />
+            <FormControlLabel className={classes.align}
+              control={
+                <Checkbox
+                  checked={this.state.checkedB}
+                  onChange={this.handleChange('dining')}
+                  value="checkedB"
+                  color="primary"
+                />
+              }
+              label="Studio"
+            />
+            <FormControlLabel className={classes.align}
+              control={
+                <Checkbox
+                  checked={this.state.checkedB}
+                  onChange={this.handleChange('dining')}
+                  value="checkedB"
+                  color="primary"
+                />
+              }
+              label="TV Room"
+            />
+          </div>
+        </FormControl>
+        <Button variant="contained" style={{marginTop:"2%"}} color="primary" className={classes.button}>
+            Next
+        </Button>
       </form>
-
-      <ChannelImage imageDetails={this.state.channel} basicRate={this.state.basicRate}/>
-
-      <Button variant="contained" size="small" className={classes.button} onClick={()=>this.saveRoomDetails}>
-      <SaveIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
-      Save
-    </Button>
       </div>
     );
   }

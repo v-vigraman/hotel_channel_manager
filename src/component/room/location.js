@@ -290,7 +290,7 @@ class Location extends React.Component {
 
     return (
       <form autoComplete="off" style={{textAlign:'left'}}>
-        <FormControl className={classes.formControl}>
+        <FormControl className={classes.formControl} style={{width:'25%'}}>
         <TextField
           id="standard-select-Country"
           select

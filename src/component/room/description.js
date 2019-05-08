@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   container: {
@@ -67,19 +68,21 @@ class Description extends React.Component {
                 margin="normal"
                 variant="standard"
             />  
-            <div>
-                <TextField 
-                    style={{width:"38%"}}
-                    id="standard-multiline-flexible"
-                    label="Detailed Description"
-                    multiline
-                    rowsMax="4"
-                    value={this.state.multiline}
-                    className={classes.textField}
-                    margin="normal"
-                    variant="standard"
-                />  
+            <div style={{width:'35%'}}>
+              <TextField
+                id="standard-multiline-static"
+                label="Detailed Description"
+                multiline
+                rows="4"
+                className={classes.textField}
+                style={{width:"98%"}}
+                margin="normal"
+                variant="standard"
+            />
             </div>
+            <Button variant="contained" color="primary" className={classes.button}>
+            Next
+          </Button>
         </div>
     );
   }

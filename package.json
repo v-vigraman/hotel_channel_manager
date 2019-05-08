@@ -11,6 +11,7 @@
     "date-fns": "^2.0.0-alpha.27",
     "luxon": "^1.13.0",
     "material-ui-icons": "^1.0.0-beta.36",
+    "material-ui-phone-number": "^1.6.1",
     "material-ui-pickers": "^2.2.4",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",

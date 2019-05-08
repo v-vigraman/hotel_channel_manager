@@ -11,6 +11,9 @@ import BasicRates from './component/room/basicRates'
 import SeasonRates from './component/room/seasonRates'
 import Discount from './component/room/discounts'
 import Extra from './component/room/extras'
+import BookingRules from './component/room/bookingRules'
+import HouseRules from './component/room/houseRules'
+import Instruction from './component/room/instruction'
 class Room extends React.Component{
     constructor(props){
         super(props);
@@ -34,29 +37,33 @@ class Room extends React.Component{
     render(){
         return (
             <div className="App">
-            <div>
-                <AppBar  onSelectOption={this.handleOption}/>
-            </div>
-            <div style={{marginLeft:'20%'}}>
-            {(this.state.indexing==0)?
-                    <Location/>:(this.state.indexing ==1)?
-                    <BasicDetails/>:(this.state.indexing ==2 )?
-                    <Creation/>:(this.state.indexing ==3 )?
-                    <Photos/>:(this.state.indexing ==4 )?
-                    <Description/>:(this.state.indexing ==5 )?
-                    <Facilities/> : (this.state.indexing ==6 )?
-                    <BasicRates/>:(this.state.indexing ==7)? 
-                    <SeasonRates/>:(this.state.indexing ==8)? 
-                    <Discount/>:(this.state.indexing==9)?
-                    <Extra/>:(this.state.indexing==10)?
-                    // <FitnessCenter/>:(index==6)?
-                    // <WbSunny/>:(index==7)?
-                    // <Loyalty/>:(index==8)?
-                    // <AddBox/>:(index==9)?
-                    // <LibraryBooks/>:(index==12)?
-                    <Creation/>:true
-            }
-            </div>
+                <div>
+                    <AppBar  onSelectOption={this.handleOption}/>
+                </div>
+                <div style={{marginLeft:'20%'}}>
+                {(this.showOption(this.state))?
+                        <Location/>:(this.state.indexing ==1)?
+                        <BasicDetails/>:(this.state.indexing ==2 )?
+                        <Creation/>:(this.state.indexing ==3 )?
+                        <Photos/>:(this.state.indexing ==4 )?
+                        <Description/>:(this.state.indexing ==5 )?
+                        <Facilities/> : (this.state.indexing ==6 )?
+                        <BasicRates/>:(this.state.indexing ==7)? 
+                        <SeasonRates/>:(this.state.indexing ==8)? 
+                        <Discount/>:(this.state.indexing==9)?
+                        <Extra/>:(this.state.indexing==10)?
+                        <BookingRules/>:(this.state.indexing==11)?
+                        <HouseRules/>:(this.state.indexing==12)?
+                        <Instruction/>:(this.state.indexing==13)?
+                        // <FitnessCenter/>:(index==6)?
+                        // <WbSunny/>:(index==7)?
+                        // <Loyalty/>:(index==8)?
+                        // <AddBox/>:(index==9)?
+                        // <LibraryBooks/>:(index==12)?
+                        // <Creation/>:true
+                        true:null
+                }
+                </div>
             </div>
         )
     }
