@@ -26,6 +26,9 @@ const styles = theme => ({
   },
   textField: {
     width: "100%"
+  },
+  button:{
+    marginLeft:'2%'
   }
 });
 
@@ -118,7 +121,7 @@ class Instruction extends React.Component {
           <div style={{marginRight:'6%',width:"50%"}}>
             <TextField
                 id="standard-multiline-static"
-                label="House Rules"
+                label="Check-in Instruction"
                 multiline
                 rows="4"
                 className={classes.textField}

@@ -109,7 +109,7 @@ class Extra extends React.Component {
                                     required
                                     select
                                     id="standard-required"
-                                    label="Maximum Stay"
+                                    label="Cleaning basis"
                                     className={classes.textField}
                                     margin="normal"
                                     variant="standard"
@@ -156,7 +156,7 @@ class Extra extends React.Component {
                                     required
                                     type="number"
                                     id="standard-required"
-                                    label="Amount in EUR*"
+                                    label="Amount in EUR"
                                     className={classes.textField}
                                     margin="normal"
                                     variant="standard"
@@ -205,7 +205,7 @@ class Extra extends React.Component {
             </div>
             <Dialog
                 open={this.state.openExtra}
-                onClose={this.handleClose}
+                onClose={this.handleCloseExtra}
                 scroll={this.state.scroll}
                 aria-labelledby="scroll-dialog-title"
             >
@@ -296,7 +296,7 @@ class Extra extends React.Component {
             </div>
             <Dialog
                 open={this.state.open}
-                onClose={this.handleCloseExtra}
+                onClose={this.handleClose}
                 scroll={this.state.scroll}
                 aria-labelledby="scroll-dialog-title"
             >

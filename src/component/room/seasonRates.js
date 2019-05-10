@@ -137,7 +137,6 @@ class SeasonRates extends React.Component {
               <FormControl className={classes.formControl} style={{width:'100%'}}>
                   <div style={{width:"100%"}}>
                     <TextField
-                      select
                       required
                       style={{width:"100%"}}
                       id="standard-required"

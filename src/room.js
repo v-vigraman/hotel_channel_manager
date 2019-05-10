@@ -14,6 +14,7 @@ import Extra from './component/room/extras'
 import BookingRules from './component/room/bookingRules'
 import HouseRules from './component/room/houseRules'
 import Instruction from './component/room/instruction'
+import Channels from './component/room/channel'
 class Room extends React.Component{
     constructor(props){
         super(props);
@@ -55,13 +56,7 @@ class Room extends React.Component{
                         <BookingRules/>:(this.state.indexing==11)?
                         <HouseRules/>:(this.state.indexing==12)?
                         <Instruction/>:(this.state.indexing==13)?
-                        // <FitnessCenter/>:(index==6)?
-                        // <WbSunny/>:(index==7)?
-                        // <Loyalty/>:(index==8)?
-                        // <AddBox/>:(index==9)?
-                        // <LibraryBooks/>:(index==12)?
-                        // <Creation/>:true
-                        true:null
+                        <Channels/>:null
                 }
                 </div>
             </div>

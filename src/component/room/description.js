@@ -22,6 +22,9 @@ const styles = theme => ({
   },
   formTemplate:{
 
+  },
+  button:{
+    marginLeft:'10px'
   }
 });
 

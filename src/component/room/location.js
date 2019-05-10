@@ -292,6 +292,14 @@ class Location extends React.Component {
       <form autoComplete="off" style={{textAlign:'left'}}>
         <FormControl className={classes.formControl} style={{width:'25%'}}>
         <TextField
+            required
+            id="standard-required"
+            label="Hotel Name"
+            className={classes.textField}
+            margin="normal"
+            variant="standard"
+        />
+        <TextField
           id="standard-select-Country"
           select
           label="Select"

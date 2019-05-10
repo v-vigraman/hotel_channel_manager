@@ -139,10 +139,10 @@ class BasicRates extends React.Component {
             ))}
             </TextField>
         </div>
+        </FormControl>
         <Button variant="contained" color="primary" className={classes.button}>
             Next
         </Button>
-        </FormControl>
       </form>
     );
   }

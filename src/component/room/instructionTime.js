@@ -44,7 +44,7 @@ class InstructionTime extends React.Component {
           <Grid item xs={6} sm={3}>
           <TimePicker
               margin="normal"
-              label="Start Date"
+              label="Earliest Check-in"
               value={startDate}
               onChange={this.handleDateChange}
               style={{width:'95%'}}
@@ -53,7 +53,7 @@ class InstructionTime extends React.Component {
           <Grid item xs={6} sm={3}>
             <TimePicker
               margin="normal"
-              label="End Date"
+              label="Latest Check-out"
               value={endDate}
               onChange={this.handleDateChange}
               style={{width:'95%'}}
