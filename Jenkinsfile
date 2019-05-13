@@ -11,6 +11,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'npm i -g npm@6.5.0'
                 sh 'npm install'
             }
         }
