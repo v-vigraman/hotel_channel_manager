@@ -12,7 +12,7 @@ class Routing extends Component {
     return (
         <BrowserRouter>
           <div className="App">
-            <Route exact path ="/"  component={() => <Home />}/> 
+            <Route exact path ="/ "  component={() => <Home />}/> 
             <Route exact path ="/channel"  component={() => <Main />}/>
             <Route exact path ="/room"  component={() => <Room />}/>
           </div>
