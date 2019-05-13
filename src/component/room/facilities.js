@@ -97,11 +97,6 @@ class Facilities extends React.Component {
 
   render() {
     const { classes } = this.props;
-    function handleOnChange(value) {
-      this.setState({
-        phone: value
-      });
-    }
     return (
       <form autoComplete="off" style={{ textAlign: "left" }}>
         <FormControl className={classes.formControl} style={{ width: "50%" }}>

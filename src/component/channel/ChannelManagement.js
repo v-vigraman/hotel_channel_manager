@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import ChannelList from './channelList'
 
@@ -25,28 +24,7 @@ const styles = theme => ({
   }
 });
 
-const currencies = [
-  {
-    value: 'INR',
-    label: '₹'
-  },
-  {
-    value: 'USD',
-    label: '$',
-  },
-  {
-    value: 'EUR',
-    label: '€',
-  },
-  {
-    value: 'BTC',
-    label: '฿',
-  },
-  {
-    value: 'JPY',
-    label: '¥',
-  }
-];
+
 
 class ChannelManagement extends React.Component {
   state = {
@@ -57,12 +35,8 @@ class ChannelManagement extends React.Component {
     url: ''
   };
 
-  constructor(props){
-      super(props);
-  }
 
   render() {
-    const { classes } = this.props;
 
     return (
       <div>
@@ -72,8 +46,5 @@ class ChannelManagement extends React.Component {
   }
 }
 
-ChannelManagement.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default withStyles(styles)(ChannelManagement);

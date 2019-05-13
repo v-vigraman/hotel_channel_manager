@@ -41,7 +41,6 @@ const styles = theme => ({
   }
 });
 
-const images = ["", "../../images/2.jpeg"];
 
 class Channels extends React.Component {
   state = { expanded: false, amount: 0 };

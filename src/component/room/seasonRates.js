@@ -120,7 +120,7 @@ class SeasonRates extends React.Component {
         <Card className={classes.cardCreation}>
         <CardContent onClick={this.handleClickOpen('body')} >
           <Typography component="p">
-            <img src="https://img.icons8.com/ios/50/000000/add-rule.png"/>
+            <img src="https://img.icons8.com/ios/50/000000/add-rule.png" alt="add"/>
           </Typography>
         </CardContent>
         </Card>

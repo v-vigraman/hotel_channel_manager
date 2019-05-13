@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
-import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import Card from '@material-ui/core/Card';
@@ -47,36 +46,12 @@ const styles = theme => ({
   },
 });
 
-const floors = ['1','2','3','4','5','6','7'];
-
-const rooms = ['1','2','3','4','5','6','7'];
 
 const kitchens = [1,2,3,4,5]
 
 const kitchenFacilities=['Kitchenette','Open plan kitchen','Outdoor kitchen','Separate kitchen'];
 
-const currencies = [
-    {
-      value: 'INR',
-      label: '₹'
-    },
-    {
-      value: 'USD',
-      label: '$',
-    },
-    {
-      value: 'EUR',
-      label: '€',
-    },
-    {
-      value: 'BTC',
-      label: '฿',
-    },
-    {
-      value: 'JPY',
-      label: '¥',
-    }
-  ];
+
 
   const bedRoomType=['Bedroom','Living room','Other room'];
   const bedCount = ['1','2','3','4','5','6','7','8','9','10+']
@@ -126,9 +101,7 @@ class Creation extends React.Component {
     this.setState({ [name]: event.target.checked });
   };
 
-  constructor(props){
-      super(props);
-  }
+
   
   render() {
     const { classes } = this.props;

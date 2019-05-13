@@ -5,7 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import ChannelImage from './channelImage'
-import Icon from '@material-ui/core/Icon';
 import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 
@@ -62,9 +61,6 @@ class Creation extends React.Component {
     url: ''
   };
 
-  constructor(props){
-      super(props);
-  }
   componentWillMount(){
 
     this.props.channelList(this.state.channelList);

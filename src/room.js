@@ -16,10 +16,6 @@ import HouseRules from './component/room/houseRules'
 import Instruction from './component/room/instruction'
 import Channels from './component/room/channel'
 class Room extends React.Component{
-    constructor(props){
-        super(props);
-    }
-
     state = {
         new:true,
         indexing:0
@@ -30,7 +26,7 @@ class Room extends React.Component{
         
     }
     showOption = () =>{
-        if(this.state.new==false && this.state.indexing==0){
+        if(this.state.new===false && this.state.indexing===0){
             
             return true;
         }
@@ -43,19 +39,19 @@ class Room extends React.Component{
                 </div>
                 <div style={{marginLeft:'20%'}}>
                 {(this.showOption(this.state))?
-                        <Location/>:(this.state.indexing ==1)?
-                        <BasicDetails/>:(this.state.indexing ==2 )?
-                        <Creation/>:(this.state.indexing ==3 )?
-                        <Photos/>:(this.state.indexing ==4 )?
-                        <Description/>:(this.state.indexing ==5 )?
-                        <Facilities/> : (this.state.indexing ==6 )?
-                        <BasicRates/>:(this.state.indexing ==7)? 
-                        <SeasonRates/>:(this.state.indexing ==8)? 
-                        <Discount/>:(this.state.indexing==9)?
-                        <Extra/>:(this.state.indexing==10)?
-                        <BookingRules/>:(this.state.indexing==11)?
-                        <HouseRules/>:(this.state.indexing==12)?
-                        <Instruction/>:(this.state.indexing==13)?
+                        <Location/>:(this.state.indexing ===1)?
+                        <BasicDetails/>:(this.state.indexing ===2 )?
+                        <Creation/>:(this.state.indexing ===3 )?
+                        <Photos/>:(this.state.indexing ===4 )?
+                        <Description/>:(this.state.indexing ===5 )?
+                        <Facilities/> : (this.state.indexing ===6 )?
+                        <BasicRates/>:(this.state.indexing ===7)? 
+                        <SeasonRates/>:(this.state.indexing ===8)? 
+                        <Discount/>:(this.state.indexing===9)?
+                        <Extra/>:(this.state.indexing===10)?
+                        <BookingRules/>:(this.state.indexing===11)?
+                        <HouseRules/>:(this.state.indexing===12)?
+                        <Instruction/>:(this.state.indexing===13)?
                         <Channels/>:null
                 }
                 </div>

@@ -26,9 +26,6 @@ const styles = theme => ({
   },
   textField: {
     width: "100%"
-  },
-  button:{
-    marginLeft:'2%'
   }
 });
 
@@ -56,14 +53,6 @@ class Instruction extends React.Component {
       "Keys are in a lock box",
       "There is a reception"
     ];
-    let wheelChair = [
-      "Full access for wheelchairs",
-      "No access for wheelchairs",
-      "Some access for wheelchairs"
-    ];
-    let parties = ["Allowed", "Not Allowed"];
-    let smoking = ["No smoking", "Smoking allowed", "Smoking outside"];
-    let pets = ["No pets allowed", "Pets allowed", "Pets considered"];
     return (
       <form autoComplete="off" style={{ textAlign: "left" }}>
         <FormControl className={classes.formControl} style={{ width: "100%" }}>

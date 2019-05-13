@@ -5,9 +5,7 @@ import Creation from './component/channel/Creation'
 import ChannelManagement from './component/channel/ChannelManagement'
 
 class Main extends React.Component{
-    constructor(props){
-        super(props);
-    }
+  
 
     state = {
         new:true,
@@ -26,7 +24,7 @@ class Main extends React.Component{
     }
 
     showOption = () =>{
-        if(this.state.new==false && this.state.indexing==0){
+        if(this.state.new===false && this.state.indexing===0){
             
             return true;
         }
@@ -46,7 +44,7 @@ class Main extends React.Component{
             </div>
             <div style={{marginLeft:'20%',marginTop:'2%'}}>
             {this.showOption(this.state)?
-                <Creation channelList={this.handleChannelList} channels={this.state.channelList}/>: (this.state.indexing==1)?
+                <Creation channelList={this.handleChannelList} channels={this.state.channelList}/>: (this.state.indexing===1)?
                  <ChannelManagement  channelList={this.state.channelList}/>:false
             }
             </div>

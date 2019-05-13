@@ -18,7 +18,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import MenuItem from '@material-ui/core/MenuItem';
 import LastMinuteDiscount from './LastMinuteDiscount'
 const styles = theme => ({
   card: {
@@ -117,7 +116,7 @@ class Discounts extends React.Component {
                 <Card className={classes.cardCreation}>
                 <CardContent onClick={this.handleClickOpen('body')} >
                 <Typography component="p">
-                    <img src="https://img.icons8.com/ios/50/000000/add-rule.png"/>
+                    <img src="https://img.icons8.com/ios/50/000000/add-rule.png" alt="add"/>
                 </Typography>
                 </CardContent>
                 </Card>

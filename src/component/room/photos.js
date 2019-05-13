@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import CardMedia from '@material-ui/core/CardMedia';
 
 const styles = theme => ({
   root: {
@@ -32,9 +30,6 @@ class Photos extends React.Component {
     
   };
 
-  constructor(props){
-      super(props);
-  }
 
 
   render() {
@@ -50,27 +45,27 @@ class Photos extends React.Component {
                   image="../../1.jpg"
                   title="Paella dish"
                 /> */}
-                  <img src={require('../../1.jpg')} width="100%" style={{height:"100%"}}/>
+                  <img src={require('../../1.jpg')} alt="1" width="100%" style={{height:"100%"}}/>
                 </Paper>
               </Grid>
               <Grid item xs={3}>
                 <Paper className={classes.paper}>
-                  <img src={require('../../1.jpg')} width="100%"/>
+                  <img src={require('../../1.jpg')} alt="1" width="100%"/>
                 </Paper>
               </Grid>
               <Grid item xs={3}>
                 <Paper className={classes.paper}>
-                  <img src={require('../../1.jpg')} width="100%"/>
+                  <img src={require('../../1.jpg')} alt="1" width="100%"/>
                 </Paper>
               </Grid>
               <Grid item xs={3}>
                 <Paper className={classes.paper}>
-                  <img src={require('../../1.jpg')} width="100%"/>
+                  <img src={require('../../1.jpg')} alt="1" width="100%"/>
                 </Paper>
               </Grid>
               <Grid item xs={3}>
                 <Paper className={classes.paper}>
-                  <img src={require('../../1.jpg')} width="100%"/>
+                  <img src={require('../../1.jpg')} alt="1" width="100%"/>
                 </Paper>
               </Grid>
             </Grid>

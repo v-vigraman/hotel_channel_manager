@@ -16,7 +16,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Icon from '@material-ui/core/Icon';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
@@ -96,10 +95,6 @@ class PersistentDrawerLeft extends React.Component {
     anchorEl: null,
   };
 
-  constructor(props){
-    super(props)
-  }
-
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };
@@ -111,7 +106,7 @@ class PersistentDrawerLeft extends React.Component {
   render() {
     const { classes, theme } = this.props;
     // const { open } = this.state;
-    const { auth, anchorEl } = this.state;
+    const {anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
     return (

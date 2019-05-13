@@ -16,7 +16,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Icon from '@material-ui/core/Icon';
 import LocationOn from '@material-ui/icons/LocationOn';
 import Message from '@material-ui/icons/Message';
 import Home from '@material-ui/icons/Home';
@@ -31,8 +30,6 @@ import AddToQueue from '@material-ui/icons/AddToQueue';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import { fade } from '@material-ui/core/styles/colorManipulator';
-import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -129,9 +126,6 @@ class PersistentDrawerLeft extends React.Component {
     mobileMoreAnchorEl: null,
   };
 
-  constructor(props){
-    super(props)
-  }
 
   handleProfileMenuOpen = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -164,9 +158,8 @@ class PersistentDrawerLeft extends React.Component {
   render() {
     const { classes, theme } = this.props;
     const { open } = this.state;
-    const { anchorEl, mobileMoreAnchorEl } = this.state;
+    const { anchorEl } = this.state;
     const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
     const renderMenu = (
       <Menu
@@ -178,39 +171,6 @@ class PersistentDrawerLeft extends React.Component {
       >
         <MenuItem onClick={this.handleMenuClose}>Profile</MenuItem>
         <MenuItem onClick={this.handleMenuClose}>My account</MenuItem>
-      </Menu>
-    );
-
-    const renderMobileMenu = (
-      <Menu
-        anchorEl={mobileMoreAnchorEl}
-        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-        open={isMobileMenuOpen}
-        onClose={this.handleMenuClose}
-      >
-        <MenuItem onClick={this.handleMobileMenuClose}>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <MailIcon />
-            </Badge>
-          </IconButton>
-          <p>Messages</p>
-        </MenuItem>
-        <MenuItem onClick={this.handleMobileMenuClose}>
-          <IconButton color="inherit">
-            <Badge badgeContent={11} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
-          <p>Notifications</p>
-        </MenuItem>
-        <MenuItem onClick={this.handleProfileMenuOpen}>
-          <IconButton color="inherit">
-            <AccountCircle />
-          </IconButton>
-          <p>Profile</p>
-        </MenuItem>
       </Menu>
     );
 
@@ -284,8 +244,8 @@ class PersistentDrawerLeft extends React.Component {
           <List>
             {['Location','Basic Details','Room Creation','Photos','Description','Facilities','Basic rates','Seasonal rates','Discounts','Extras','Booking rules','House Rules','Instructions','Channels'].map((text, index) => (
               <ListItem button key={text} onClick={ () => this.props.onSelectOption(index,this.props.channels)} >
-                <ListItemIcon>{(index == 0 )? 
-                                  <LocationOn/>:(index ==1)? <Message/>:(index ==2 )? <Home/>:(index==3)? <Photo/>:(index==4)?<Description/>:(index==5)?<FitnessCenter/>:(index==6)?<WbSunny/>:(index==7)?<Loyalty/>:(index==8)?<AddBox/>:(index==9)?<LibraryBooks/>:(index==12)?<AddToQueue/>:<LibraryBooks/>              
+                <ListItemIcon>{(index === 0 )? 
+                                  <LocationOn/>:(index ===1)? <Message/>:(index ===2 )? <Home/>:(index===3)? <Photo/>:(index===4)?<Description/>:(index===5)?<FitnessCenter/>:(index===6)?<WbSunny/>:(index===7)?<Loyalty/>:(index===8)?<AddBox/>:(index===9)?<LibraryBooks/>:(index===12)?<AddToQueue/>:<LibraryBooks/>              
                                }
                                               
                 </ListItemIcon>
