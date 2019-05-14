@@ -20,7 +20,8 @@ pipeline {
             steps {
                 // sh 'npm run build'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh './jenkins/scripts/kill.sh'
+                sh 'kill $(cat .pidfile)'
+                // sh './jenkins/scripts/kill.sh'
             }
         }
     }
