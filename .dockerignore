@@ -1,0 +1,5 @@
+node_modules
+build
+jenkins
+Jenkinsfile
+npm-debug.log
