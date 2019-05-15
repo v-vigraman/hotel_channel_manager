@@ -101,6 +101,92 @@ class Channels extends React.Component {
             </CardContent>
           </Collapse>
         </Card>
+        <Card
+          className={classes.card}
+          style={{ display: "inline-block", width: "20%" }}
+        >
+          <CardMedia
+            className={classes.media}
+            image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHoAAAA5CAMAAADOS88UAAAAw1BMVEX///8ASIEAR4H+/v8ARYAAOXnq8PMSVYsAQX3w8/YAPHtpiKfG0dsAn9sANHbm7fHh5+4PToXt7u8AAGAADWWUqsEAFWe/xdAfWIwAEmcAKG4Ao+8ALHAAGWkApe2bpLvV2eJEWYao2O4Aqey+4fQlreRNteZOYYqpscU5UYLO5fB0gqEAI2yKzPCUzulqv+hoeJvj8/y83OiEkKuxucctSX5od5O00uZMcZmAmbW1xdSmuMo7Z5MAkMsAZ6AAAFcFd68N4qeOAAAEIklEQVRYhb2ZCXeqOhDHhxC4EGnEBXEF1OtarcvFPmttb7//p3pZUBHreaevSf940gSUHzOZGQIF+JpMP/HuyHe/eK4vyS81LWrdU6Xk6QK7JepgjK4kxnInxg7dl7WQ/aZjIGQwiUa019eBDAcnGsjlosFnu4XhbONdTDWwj84NlNtpnJqsiyrKoy2wJM5ClZMci2Ak3W6cWoSckmKyWZGh1PRsN5NdToIjvZkFw1IcagdLhlbxtB6LvYJIrBb9IgjMmeaVmDv2RTbeq0UfRUbfzqMJJj90paapFN1EeatPXNHxSC7MWLYjQ22M/8I8dTI0HI5MpQTk6IhzycWvQDUaobPDXYv7mNBX7nCWd+QqzLF6q6XDuXwqA6orGVn0n6TB4bdo68A9Dp6VLykaHM7N4XPNNp8icfNgaO5yZrXeuT5ZbeYcLgtMUMxsTWjuYZ+K/KWBGEFTRJkhPpocfplro8m0P8hDr6RYSvWh88WKuUCWkh+I8Es1k72kgotGq0aji9WygGYX4O+JXDTIhrf6CimcXW6K0QspLNF0WS39bftMJsgIL/1Qcgm9UC4jkGzb0Wt1/vZhU+liyosb+5SIXvQnNRxRT8z2gZxKipYajj5BGySQY0fvXKPzUoHfPqTIixw7+JxcGh0u0cbVXdN3mE+wcS5rPzDXztHMbtiG8/728PaBtRTSS14zdJtw0aMNoqoFDv544HrDSOPajFvpBkJetiw0f+HKg5T4mtaScpaoZgFB7xn6A+tcm4nCLTfZ94iB82jcVEouoM1zk9WTs8OR+kfNOw4HvySiPTNbhDhJ1aP5itQu5+S97klWyBBPrneZcmofubLkMhyaF3+0P62KMHYcMbACteQTuqjrN0i8IUfF5HvoGznNqnL07eLvMydYR+XkrJrdKv9I71hI9TxzVSzyX8L7Vy1vSe2i3Jsd6qFu8ZwybbW9ib1wrHqNhle7us+sSf+Gn/9Anao0NteEdaTtvN1xtDvlxotwvo5pdX6v0qm57oPXrXVTSHa1eszRs53X8PuTXW0HSbe2azMPuONOZwWDYWc430SrzpD1Vt9EE9ruhW537T/2/F3fj1vJ7pk1SSOZtONpL5zMkj8Lhl4N59vhNlqWx8PNcDQfRoPV0P621XEvbPngNthfgF7cp4tH4OgJ2L2pFYNfZ/ujJfv209CFeTSIfsNoDP9E33tZWu2GELbCVgpePVz8gWp9Ont+bFclutxI+31gtm9cxoL5IJrDU7Rl7WilAG059TU8NmatNcT12WIG5NldrJNa0p+AXwvDRa3bDaPxPBqNOvNxNOosN52tsLrzPbSZpilP4TDmyZTEqQlpCN7Un1bTlB31oZqkreT3HDbL5QbMwXIO7pMNgy24A63/AmIJXt/1JnoR91RN4/9ZXP4Fp3NXyiik4BkAAAAASUVORK5CYII="
+            title="Paella dish"
+          />
+          <CardActions className={classes.actions} disableActionSpacing>
+            <IconButton aria-label="Add to favorites">
+              <FavoriteIcon />
+            </IconButton>
+            <IconButton
+              className={classnames(classes.expand, {
+                [classes.expandOpen]: this.state.expanded
+              })}
+              onClick={this.handleExpandClick}
+              aria-expanded={this.state.expanded}
+              aria-label="Show more"
+            >
+              <ExpandMoreIcon />
+            </IconButton>
+          </CardActions>
+          <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+            <CardContent>
+              <p style={{fontSize:'0.7em'}}>Specify the ammount display for specific OTA's from Basic Rates in (%)</p>
+              <TextField
+                id="standard-adornment-amount"
+                className={classNames(classes.margin, classes.textField)}
+                variant="standard"
+                label="Amount"
+                value={this.state.amount}
+                onChange={this.handleChange("amount")}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">$</InputAdornment>
+                  )
+                }}
+              />
+            </CardContent>
+          </Collapse>
+        </Card>
+        <Card
+          className={classes.card}
+          style={{ display: "inline-block", width: "20%" }}
+        >
+          <CardMedia
+            className={classes.media}
+            image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHoAAAAyCAMAAACkjD/XAAAAkFBMVEX///8Af7sAhr4AebgAgrz/RUz/9PT/4OH/P0f/t7n/+vre7PTP4+8AdLb/pKb/2Nn/dHj/lpn/6uqOvtv/5eb/vb//aG32+vwAisAlkMOv0OX/yMplqtDH3uxbpM3/q6281+j/iIv/naD/MTvp8/ikyuH/foJ7s9X/XGL/VVv/0NH/sbM2lsZOnsr/TFP/jpEIVRHjAAACwUlEQVRYhe1W2baqMAwNc5nRCmUoygwKeP7/726KnvN4wQf1hS2rqbDoJslOWoAdO3bs2PFfHG/HLzH/1Nf68BXm8X6EkxZ+gdmqbzhm5AvUVbSY4fJxZr32F5sR69PUT6fRbe/DzDpBp3VfB7i97HbT/E4oZX93bdpue70KRHERUVyvup26Ln2QKfw8/d1V+qnf8rpwerxicd3Nl92OC6Y6YqK2wNyn27bigBNveV1kehAlPQaviJwVyCnZEKepA3QGKJLnkxkD0W/xWidY09EvdaZtdNuRJ5XD3FNZ5VIu42fIPbTnNG9ziUGjbEn2Rcj70OEQiEQP5ibmXuLAZC7PcmzDOUGHaT/FSSvHHJ/Amarp+iJahsOpPoJRiw0kvG9hprFQdoxjUoDN0eEcLX4AxnlOobUhnVcXya6LKQOIlu3Dut/WmRu3AY5yKoBJQmXITynYKTBUmmzDXECxTl39LMYaouGR5XJDfVEO+RlaxYY2ZsgpzQ6VoEBqCo4LMJ0x/qureOXTkvEx6cZ1ahHTdlFyLLoHnxuKkp5t6FNMs6g5kPLVVQyyHBEuxHxwn8iGIwNSA8oYZ8yRGkiBNznk6O7cQI4xx/gnq4tgxLXQyKL7CQwtyIyQbClsOmGvXNpGqshINaOoHUVuIWFgC223brO+Cgot0KJHkC+DFmwQGWJyFUmVkiRWHR5zhcdJohS2JEny5FJlklFqb0PDGEq7EAktsJSgKEQXdViOlhXref46DiLG45+uww/u2Z3o34fq9++l/AirXlWhEZ7MsPLK6mKdTK+yxq7y9PdTD6WphUEWdZk3mF3gE7PswqtZDm9n9jXsm4LahwozTMII/MHEzkqMd1Mfca8KntQH8EmG1JHZLfvYu+HVmhZG4fUGB02rw9sA/tXE2SfO4zoKysIfXsdlFJf+AZXt2LFjx5fwDyfyNknFGtsgAAAAAElFTkSuQmCC"
+            title="Paella dish"
+          />
+          <CardActions className={classes.actions} disableActionSpacing>
+            <IconButton aria-label="Add to favorites">
+              <FavoriteIcon />
+            </IconButton>
+            <IconButton
+              className={classnames(classes.expand, {
+                [classes.expandOpen]: this.state.expanded
+              })}
+              onClick={this.handleExpandClick}
+              aria-expanded={this.state.expanded}
+              aria-label="Show more"
+            >
+              <ExpandMoreIcon />
+            </IconButton>
+          </CardActions>
+          <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+            <CardContent>
+              <p style={{fontSize:'0.7em'}}>Specify the ammount display for specific OTA's from Basic Rates in (%)</p>
+              <TextField
+                id="standard-adornment-amount"
+                className={classNames(classes.margin, classes.textField)}
+                variant="standard"
+                label="Amount"
+                value={this.state.amount}
+                onChange={this.handleChange("amount")}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">$</InputAdornment>
+                  )
+                }}
+              />
+            </CardContent>
+          </Collapse>
+        </Card>
       </div>
     );
   }

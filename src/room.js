@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { withStyles } from '@material-ui/core/styles';
 import AppBar from './component/room/AppBar';
 import Creation from './component/room/creation'
 import Location from './component/room/location'
@@ -15,12 +16,27 @@ import BookingRules from './component/room/bookingRules'
 import HouseRules from './component/room/houseRules'
 import Instruction from './component/room/instruction'
 import Channels from './component/room/channel'
+import Footer from "react-footer-comp";
+const styles = {
+    footer:{
+        position:"fixed",
+        bottom:0,
+        width:"100%",
+        height:"85px"
+    },
+    insideFooter:{
+    },
+    RoomInsideFooter2:{
+        
+        // height:""
+    }
+  };
 class Room extends React.Component{
     state = {
         new:true,
         indexing:0
     }
-
+    
     handleOption = (index) =>{
         this.setState({new:false,indexing:index})
         
@@ -32,12 +48,13 @@ class Room extends React.Component{
         }
     }
     render(){
+        const { classes } = this.props;
         return (
             <div className="App">
                 <div>
                     <AppBar  onSelectOption={this.handleOption}/>
                 </div>
-                <div style={{marginLeft:'20%'}}>
+                <div style={{marginLeft:'20%',marginBottom:"15%"}}>
                 {(this.showOption(this.state))?
                         <Location/>:(this.state.indexing ===1)?
                         <BasicDetails/>:(this.state.indexing ===2 )?
@@ -55,6 +72,9 @@ class Room extends React.Component{
                         <Channels/>:null
                 }
                 </div>
+                <div className={classes.footer}>
+                    <Footer className={classes.insideFooter} style={{height:"20px"}} text={"Maintained by Codingmart."}  bgColor={"rgb(140, 85, 154)"}><div><p>sCodingmart</p></div></Footer>
+                </div>
             </div>
         )
     }
@@ -62,4 +82,4 @@ class Room extends React.Component{
 
 }
 
-export default Room;
+export default withStyles(styles)(Room);
