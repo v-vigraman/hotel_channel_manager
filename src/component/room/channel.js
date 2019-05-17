@@ -104,12 +104,12 @@ class Channels extends React.Component {
                 id="standard-adornment-amount"
                 className={classNames(classes.margin, classes.textField)}
                 variant="standard"
-                label="Amount"
+                label="Percentage"
                 value={this.state.amount}
                 onChange={this.handleChange("amount")}
                 InputProps={{
                   startAdornment: (
-                    <InputAdornment position="start">$</InputAdornment>
+                    <InputAdornment position="start">%</InputAdornment>
                   )
                 }}
               />
@@ -147,12 +147,12 @@ class Channels extends React.Component {
                 id="standard-adornment-amount"
                 className={classNames(classes.margin, classes.textField)}
                 variant="standard"
-                label="Amount"
+                label="Percentage"
                 value={this.state.amount}
                 onChange={this.handleChange("amount")}
                 InputProps={{
                   startAdornment: (
-                    <InputAdornment position="start">$</InputAdornment>
+                    <InputAdornment position="start">%</InputAdornment>
                   )
                 }}
               />
@@ -190,12 +190,12 @@ class Channels extends React.Component {
                 id="standard-adornment-amount"
                 className={classNames(classes.margin, classes.textField)}
                 variant="standard"
-                label="Amount"
+                label="Percentage"
                 value={this.state.amount}
                 onChange={this.handleChange("amount")}
                 InputProps={{
                   startAdornment: (
-                    <InputAdornment position="start">$</InputAdornment>
+                    <InputAdornment position="start">%</InputAdornment>
                   )
                 }}
               />

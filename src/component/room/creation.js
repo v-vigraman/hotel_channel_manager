@@ -22,7 +22,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-
+import Photos from './photos'
 
 const styles = theme => ({
   container: {
@@ -74,16 +74,30 @@ const heater = [
   "Stove or fireplace"
 ];
 
+const roomType = [
+  "Deluxe Room",
+  "Standard Room"
+]
+
 class Creation extends React.Component {
   state = {
     dining:true,
     open:false,
     scroll:'paper',
-    openBath:false 
+    openBath:false,
+    openPhotos:false 
   };
   
   handleClickOpen = scroll => () => {
     this.setState({ open: true, scroll });
+  };
+
+  handleClickOpenPhotos = scroll => () => {
+    this.setState({ openPhotos: true, scroll });
+  };
+
+  handleClosePhotos = () => {
+    this.setState({ openPhotos: false });
   };
 
   handleClickOpenBath = scroll => () =>{
@@ -163,7 +177,10 @@ class Creation extends React.Component {
                   <Delete/>
                 </IconButton>
                 <IconButton aria-label="contentCopy">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                </IconButton>
+                <IconButton onClick={this.handleClickOpenPhotos}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>								
                 </IconButton>
               </CardActions>
             </Card>
@@ -492,6 +509,24 @@ class Creation extends React.Component {
                       ))}
                       </TextField>
                     </div>
+                    <div style={{width:"45%",display:"inline-block"}}>
+                      <TextField
+                        select
+                        required
+                        style={{width:"100%"}}
+                        id="standard-required"
+                        label="Room Type"
+                        className={classes.textField}
+                        margin="normal"
+                        variant="standard"
+                      >
+                      {roomType.map(option => (
+                      <MenuItem key={option} value={option}>
+                          {option}
+                      </MenuItem>
+                      ))}
+                      </TextField>
+                    </div>
                   </div>
                   <div style={{  width: "100%" }}>
                     <FormControlLabel
@@ -612,6 +647,22 @@ class Creation extends React.Component {
               </Button>
             </DialogActions>
           </Dialog>
+          <Dialog
+                open={this.state.openPhotos}
+                onClose={this.handleClosePhotos}
+                scroll={this.state.scroll}
+                aria-labelledby="scroll-dialog-title"
+            >
+            <DialogTitle id="scroll-dialog-title">Room Photos</DialogTitle>
+            <DialogContent>
+                <Photos/>
+            </DialogContent>
+            <DialogActions>
+                <Button onClick={this.handleClose} color="primary">
+                  Save
+                </Button>
+            </DialogActions>
+            </Dialog>
         </div>
       </div>
     );

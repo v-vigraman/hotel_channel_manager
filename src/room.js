@@ -9,7 +9,6 @@ import BasicRates from './component/room/basicRates'
 import SeasonRates from './component/room/seasonRates'
 import Discount from './component/room/discounts'
 import BookingRules from './component/room/bookingRules'
-import HouseRules from './component/room/houseRules'
 import Instruction from './component/room/instruction'
 import Channels from './component/room/channel'
 import Footer from "react-footer-comp";
@@ -59,13 +58,12 @@ class Room extends React.Component{
                         <SeasonRates/>:(this.state.indexing ===5)? 
                         <Discount/>:(this.state.indexing===6)?
                         <BookingRules/>:(this.state.indexing===7)?
-                        <HouseRules/>:(this.state.indexing===8)?
-                        <Instruction/>:(this.state.indexing===9)?
+                        <Instruction/>:(this.state.indexing===8)?
                         <Channels/>:null
                 }
                 </div>
                 <div className={classes.footer}>
-                    <Footer className={classes.insideFooter} style={{height:"20px"}} text={"Maintained by Codingmart."}  bgColor={"rgb(140, 85, 154)"}><div><p>sCodingmart</p></div></Footer>
+                    <Footer className={classes.insideFooter} style={{height:"20px"}} text={"Maintained by Codingmart."}  bgColor={"#332e43"}><div><p>sCodingmart</p></div></Footer>
                 </div>
             </div>
         )

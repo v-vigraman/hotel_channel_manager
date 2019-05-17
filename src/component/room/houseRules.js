@@ -57,7 +57,7 @@ class HouseRules extends React.Component {
     let pets = ['No pets allowed','Pets allowed','Pets considered']
     return (
       <form autoComplete="off" style={{textAlign:'left'}}>
-        <FormControl className={classes.formControl} style={{width:'50%'}}>
+        <FormControl className={classes.formControl} style={{width:'100%'}}>
         <div style={{width:'100%'}}>
             <div className={classes.formAlign}>
                 <TextField

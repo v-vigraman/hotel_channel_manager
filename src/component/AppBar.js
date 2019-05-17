@@ -85,7 +85,7 @@ const styles = theme => ({
     margin: theme.spacing.unit * 2,
   },
   appBarColor:{
-    backgroundColor: "#a15ea2",
+    backgroundColor: "#332e43",
   }
 });
 

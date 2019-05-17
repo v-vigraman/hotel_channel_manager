@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Location from './location'
 import BasicDetails from './basicDetails'
 import Extra from './extras'
+import HouseRules from './houseRules'
 function TabContainer({ children, dir }) {
   return (
     <Typography component="div" dir={dir} style={{ padding: 8 * 3 }}>
@@ -24,8 +25,9 @@ TabContainer.propTypes = {
 
 const styles = theme => ({
   root: {
+    marginTop:"2%",
     backgroundColor: theme.palette.background.paper,
-    width: 500,
+    width: "59%",
   },
 });
 
@@ -58,6 +60,7 @@ class HotelDetails extends React.Component {
             <Tab label="Location" />
             <Tab label="Basic Details" />
             <Tab label="Extras" />
+            <Tab label="House Rules" />
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -73,6 +76,9 @@ class HotelDetails extends React.Component {
           </TabContainer>
           <TabContainer dir={theme.direction}>
             <Extra/>
+          </TabContainer>
+          <TabContainer dir={theme.direction}>
+            <HouseRules/>
           </TabContainer>
         </SwipeableViews>
       </div>

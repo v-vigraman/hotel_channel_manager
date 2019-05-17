@@ -31,3 +31,8 @@
     transform: rotate(360deg);
   }
 }
+
+.PersistentDrawerLeft-drawerHeader-11 {
+  background-image: url(https://www.codingmart.com/assets/codingmart.png);
+  background-size: contain;
+}
