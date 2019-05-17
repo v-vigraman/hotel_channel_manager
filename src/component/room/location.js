@@ -288,7 +288,7 @@ class Location extends React.Component {
 
     return (
       <form autoComplete="off" style={{textAlign:'left'}}>
-        <FormControl className={classes.formControl} style={{width:'25%'}}>
+        <FormControl className={classes.formControl} style={{width:'60%'}}>
         <TextField
             required
             id="standard-required"
@@ -357,7 +357,7 @@ class Location extends React.Component {
             variant="standard"
         />
         <Button variant="contained" color="primary" className={classes.button}>
-            Next
+            Save
         </Button>
         </FormControl>
       </form>

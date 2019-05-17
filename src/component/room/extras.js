@@ -84,7 +84,7 @@ class Extra extends React.Component {
     return (
         <div style={{marginTop:"2%",textAlign:"left"}}>
             <div>
-                <Card className={classes.card} style={{width:"50%"}}>
+                <Card className={classes.card} style={{width:"100%"}}>
                     <CardContent style={{textAlign:"left"}}>
                     <h3>Cleaning</h3>
                     <div style={{width:"100%"}}>
@@ -131,7 +131,7 @@ class Extra extends React.Component {
                 </Card>
             </div>
             <div>
-                <Card className={classes.card} style={{width:"50%",marginTop:"2%"}}>
+                <Card className={classes.card} style={{width:"100%",marginTop:"2%"}}>
                     <CardContent style={{textAlign:"left"}}>
                     <h3>Security deposit</h3>
                     <div style={{width:"100%"}}>
@@ -171,7 +171,7 @@ class Extra extends React.Component {
             </div>
             <h3>Taxes</h3>
             <div >
-                <div className={classes.card} style={{marginTop:'2%',width:"25%",display:'inline-block',marginRight:'2%'}}>
+                <div className={classes.card} style={{marginTop:'2%',width:"50%",display:'inline-block',marginRight:'2%'}}>
                     <Card>
                         <CardContent style={{textAlign:"left"}}>
                         <h3>Government tax</h3>
@@ -262,7 +262,7 @@ class Extra extends React.Component {
             </Dialog>
             <h3>Optional extras and services</h3>
             <div>
-                <div className={classes.card} style={{marginTop:'2%',width:"25%",display:'inline-block',marginRight:'2%'}}>
+                <div className={classes.card} style={{marginTop:'2%',width:"50%",display:'inline-block',marginRight:'2%'}}>
                     <Card>
                         <CardContent style={{textAlign:"left"}}>
                         <h3>Laundry service</h3>

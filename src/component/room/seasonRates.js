@@ -157,7 +157,7 @@ class SeasonRates extends React.Component {
                         required
                         type="number"
                         id="standard-required"
-                        label="Basic Night"
+                        label="Basic Night Rate in (%)"
                         className={classes.textField}
                         margin="normal"
                         variant="standard"
@@ -168,7 +168,7 @@ class SeasonRates extends React.Component {
                         required
                         type="number"
                         id="standard-required"
-                        label="Weekend Night"
+                        label="Weekend Night  Rate in (%)"
                         className={classes.textField}
                         margin="normal"
                         variant="standard"

@@ -17,11 +17,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import LocationOn from '@material-ui/icons/LocationOn';
-import Message from '@material-ui/icons/Message';
 import Home from '@material-ui/icons/Home';
 import Photo from '@material-ui/icons/Photo';
-import Description from '@material-ui/icons/Description';
-import FitnessCenter from '@material-ui/icons/FitnessCenter';
 import WbSunny from '@material-ui/icons/WbSunny';
 import Loyalty from '@material-ui/icons/Loyalty';
 import AddBox from '@material-ui/icons/AddBox';
@@ -34,7 +31,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-const drawerWidth = 200;
+const drawerWidth = 230;
 
 
 
@@ -161,7 +158,7 @@ class PersistentDrawerLeft extends React.Component {
     const { open } = this.state;
     const { anchorEl } = this.state;
     const isMenuOpen = Boolean(anchorEl);
-    const img = <img style={{marginTop: 10}}src="https://unsplash.it/40/40"/>
+    const img = <img style={{marginTop: 10}}src="https://unsplash.it/40/40" alt="add"/>
     const renderMenu = (
       <Menu
         anchorEl={anchorEl}
@@ -243,10 +240,10 @@ class PersistentDrawerLeft extends React.Component {
           </div>
           <Divider />
           <List>
-            {['Location','Basic Details','Room Creation','Photos','Description','Facilities','Basic rates','Seasonal rates','Discounts','Extras','Booking rules','House Rules','Instructions','Channels'].map((text, index) => (
+            {['Hotel Details','Room Creation','Photos','Basic rates','Seasonal rates','Discounts','Booking rules','House Rules','Instructions','Channels'].map((text, index) => (
               <ListItem button key={text} onClick={ () => this.props.onSelectOption(index,this.props.channels)} >
                 <ListItemIcon>{(index === 0 )? 
-                                  <LocationOn/>:(index ===1)? <Message/>:(index ===2 )? <Home/>:(index===3)? <Photo/>:(index===4)?<Description/>:(index===5)?<FitnessCenter/>:(index===6)?<WbSunny/>:(index===7)?<Loyalty/>:(index===8)?<AddBox/>:(index===9)?<LibraryBooks/>:(index===12)?<AddToQueue/>:<LibraryBooks/>              
+                                  <LocationOn/>:(index ===1)? <Home/>:(index===2)? <Photo/>:(index===4)?<WbSunny/>:(index===5)?<Loyalty/>:(index===6)?<AddBox/>:(index===7)?<LibraryBooks/>:(index===9)?<AddToQueue/>:<LibraryBooks/>              
                                }
                                               
                 </ListItemIcon>

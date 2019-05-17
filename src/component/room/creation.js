@@ -47,32 +47,33 @@ const styles = theme => ({
 });
 
 
-const kitchens = [1,2,3,4,5]
+const rooms = [1,2,3,4]
+const airCondition=['Yes','No']
+const bedRoomType=['Single','Queen','King','Sofa Bed'];
+const kitchenBool=['Yes','No']
+const internet = ["NO internet", "Wired internet", "Wireless internet (WIFI)"];
+let kidsSuitable = ['Children welcome','Great for children','Not suitable for children'];
 
-const kitchenFacilities=['Kitchenette','Open plan kitchen','Outdoor kitchen','Separate kitchen'];
+const pool = [
+  "No swimming pool",
+  "Private indoor pool",
+  "Private outdoor pool",
+  "Shared indoor pool",
+  "Shared outdoor pool"
+];
+const washing = [
+  "No washing machine",
+  "Shared washing machine",
+  "Washing machine"
+];
+const heater = [
+  "Central heating",
+  "Electric heating",
+  "Gas heating",
+  "No heating",
+  "Stove or fireplace"
+];
 
-
-
-  const bedRoomType=['Bedroom','Living room','Other room'];
-  const bedCount = ['1','2','3','4','5','6','7','8','9','10+']
-  const count=[
-    {
-      labels:['Bunk-bed','Double bed']
-    },
-    {
-      labels:['King-sized bed','Queen-sized bed']
-    },
-    {
-      labels:['Single bed(adult)','Single bed(child)']
-    },
-    {
-      labels:['Sofa-bed(double)','Sofa-bed(single)']
-    }
-  ]
-  const bathType=['En-suite bathroom','Full bathroom','WC']
-  const toilet = ['No toilet','Toilet']
-  const shower = ['No shower','Separate shower','Shower over bath']
-  const bath = ['Jacuzzi','No bath','Standard bath']
 class Creation extends React.Component {
   state = {
     dining:true,
@@ -101,6 +102,9 @@ class Creation extends React.Component {
     this.setState({ [name]: event.target.checked });
   };
 
+  handleChangeFacilities = name => event => {
+    this.setState({ [name]: event.target.checked });
+  };
 
   
   render() {
@@ -112,7 +116,7 @@ class Creation extends React.Component {
 
     return (
       <div style={{width:"100%"}}>
-        <div style={{width:"50%",float:"left"}}>
+        <div style={{width:"50%",marginBottom:"10%",float:"left"}}>
         <form className={classNames(classes.container, classes.formTemplate)} style={{textAlign:"left",marginBottom:"2%"}} noValidate autoComplete="off">
           <FormControl className={classes.formControl} style={{width:'100%'}}>
             <div style={{marginRight:'6%',width:'50%'}}>
@@ -120,7 +124,7 @@ class Creation extends React.Component {
                     required
                     select
                     id="standard-required"
-                    label="Number of bedrooms"
+                    label="Number of Different rooms"
                     className={classes.textField}
                     margin="normal"
                     style={{width:'100%'}}
@@ -136,7 +140,7 @@ class Creation extends React.Component {
             <div style={{marginRight:'6%',width:'50%'}}>
             <Card  style={{width:"100%"}}>
               <CardHeader
-                title="Bedroom 1"
+                title="Room 1"
               />
               <CardContent>
                 <Typography component="p">
@@ -158,90 +162,11 @@ class Creation extends React.Component {
                 >
                   <Delete/>
                 </IconButton>
-              </CardActions>
-            </Card>
-            </div>
-            <div style={{marginRight:'6%',width:'50%'}}>
-                <TextField
-                    required
-                    select
-                    id="standard-required"
-                    label="Number of Bathrooms"
-                    className={classes.textField}
-                    margin="normal"
-                    style={{width:'100%'}}
-                    variant="standard"
-                >
-                {bedRoom.map(option => (
-                    <MenuItem key={option} value={option}>
-                        {option}
-                    </MenuItem>
-                ))}
-                </TextField>
-            </div>
-            <div style={{marginRight:'6%',width:'50%'}}>
-            <Card  style={{width:"100%"}}>
-              <CardHeader
-                title="Bathroom 1"
-              />
-              <CardContent>
-                <Typography component="p">
-                Full bathroom
-
-                Toilet, Shower over bath, Standard bath
-                </Typography>
-              </CardContent>
-              <CardActions className={classes.actions} disableActionSpacing>
-                <IconButton aria-label="edit" onClick={this.handleClickOpenBath('body')}>
-                  <Edit />
-                </IconButton>
-                <IconButton className={classnames(classes.expand, {
-                    [classes.expandOpen]: this.state.expanded,
-                  })}
-                  onClick={this.handleExpandClick}
-                  aria-expanded={this.state.expanded}
-                  aria-label="Show more"
-                >
-                  <Delete/>
+                <IconButton aria-label="contentCopy">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
                 </IconButton>
               </CardActions>
             </Card>
-            </div>
-            <div style={{marginRight:'6%',width:'50%'}}>
-                <TextField
-                    required
-                    select
-                    id="standard-required"
-                    label="Number of Kitchens"
-                    className={classes.textField}
-                    margin="normal"
-                    style={{width:'100%'}}
-                    variant="standard"
-                >
-                {kitchens.map(option => (
-                    <MenuItem key={option} value={option}>
-                        {option}
-                    </MenuItem>
-                ))}
-                </TextField>
-            </div>
-            <div style={{marginRight:'6%',width:'50%'}}>
-                <TextField
-                    required
-                    select
-                    id="standard-required"
-                    label="Kitchen 1"
-                    className={classes.textField}
-                    margin="normal"
-                    style={{width:'100%'}}
-                    variant="standard"
-                >
-                {kitchenFacilities.map(option => (
-                    <MenuItem key={option} value={option}>
-                        {option}
-                    </MenuItem>
-                ))}
-                </TextField>
             </div>
             <h3>Other Rooms</h3>
             <Divider component="p" />
@@ -277,7 +202,7 @@ class Creation extends React.Component {
                     color="primary"
                   />
                 }
-                label="Eating area"
+                label="Smoking Room"
               />
               <FormControlLabel className={classes.align}
                 control={
@@ -381,7 +306,7 @@ class Creation extends React.Component {
             </div>
           </FormControl>
           <Button variant="contained" style={{marginTop:"2%"}} color="primary" className={classes.button}>
-              Next
+              Save
           </Button>
         </form>
         <Dialog
@@ -390,18 +315,47 @@ class Creation extends React.Component {
             scroll={this.state.scroll}
             aria-labelledby="scroll-dialog-title"
           >
-            <DialogTitle id="scroll-dialog-title">Choose beds for Bedroom 1</DialogTitle>
+            <DialogTitle id="scroll-dialog-title">Add Facilities for selected room.</DialogTitle>
             <DialogContent>
-              <p>Add beds by choosing the quantities below.</p>
               <form autoComplete="off" style={{textAlign:'left'}}>
                 <FormControl className={classes.formControl} style={{width:'100%'}}>
                     <div style={{width:"100%"}}>
+                      <div style={{width:"45%",marginRight:"10%",display:"inline-block"}}>
+                        <TextField
+                          required
+                          select
+                          id="standard-required"
+                          label="Room in Which Floor"
+                          className={classes.textField}
+                          margin="normal"
+                          style={{width:'100%'}}
+                          variant="standard"
+                      >
+                      {rooms.map(option => (
+                          <MenuItem key={option} value={option}>
+                              {option}
+                          </MenuItem>
+                      ))}
+                      </TextField>
+                    </div>
+                    <div style={{width:"45%",display:"inline-block"}}>
+                      <TextField
+                        required
+                        type="number"
+                        style={{width:"100%"}}
+                        id="standard-required"
+                        label="Basic rate"
+                        className={classes.textField}
+                        margin="normal"
+                      />
+                    </div>
+                    <div style={{width:"45%",marginRight:"10%",display:"inline-block"}}>
                       <TextField
                         required
                         select
-                        style={{width:"97%"}}
+                        style={{width:"100%"}}
                         id="standard-required"
-                        label="Bedroom type"
+                        label="Bed type"
                         className={classes.textField}
                         margin="normal"
                         variant="standard"
@@ -413,30 +367,242 @@ class Creation extends React.Component {
                       ))}
                       </TextField>
                     </div>
-                    {count.map(option => (
-                      <div style={{width:"100%"}}>
-                        {option.labels.map(label=>(
-                          <div style={{width:"47%",display:'inline-block',marginRight:"3%"}}> 
-                            <TextField
-                              required
-                              select
-                              id="standard-required"
-                              label={label}
-                              style={{width:'100%'}}
-                              className={classes.textField}
-                              margin="normal"
-                              variant="standard"
-                            >
-                            {bedCount.map(option => (
-                              <MenuItem key={option} value={option}>
-                                {option}
-                              </MenuItem>
-                            ))}
-                            </TextField>
-                          </div>
+                    <div style={{width:"45%",display:"inline-block"}}>
+                      <TextField
+                        select
+                        required
+                        style={{width:"100%"}}
+                        id="standard-required"
+                        label="Air-conditioning"
+                        className={classes.textField}
+                        margin="normal"
+                      >
+                        {airCondition.map(option => (
+                          <MenuItem key={option} value={option}>
+                            {option}
+                          </MenuItem>
                         ))}
-                      </div>
-                    ))}
+                      </TextField>
+                    </div>
+                    <div style={{width:"45%",marginRight:"10%",display:"inline-block"}}>
+                      <TextField
+                        required
+                        select
+                        style={{width:"100%"}}
+                        id="standard-required"
+                        label="Kitchen"
+                        className={classes.textField}
+                        margin="normal"
+                        variant="standard"
+                      >
+                      {kitchenBool.map(option =>(
+                        <MenuItem key={option} value={option}>
+                          {option}
+                      </MenuItem>
+                      ))}
+                      </TextField>
+                    </div>
+                    <div style={{width:"45%",display:"inline-block"}}>
+                      <TextField
+                        select
+                        required
+                        id="standard-required"
+                        label="Internet"
+                        style={{width:"100%"}}
+                        className={classes.textField}
+                        margin="normal"
+                        variant="standard"
+                      >
+                        {internet.map(option => (
+                          <MenuItem key={option} value={option}>
+                            {option}
+                          </MenuItem>
+                        ))}
+                      </TextField>
+                    </div>
+                    <div style={{width:"45%",display:"inline-block",marginRight:"10%"}}>
+                      <TextField
+                        select
+                        required
+                        id="standard-required"
+                        label="Swiming Pool"
+                        style={{width:"100%"}}
+                        className={classes.textField}
+                        margin="normal"
+                        variant="standard"
+                      >
+                        {pool.map(option => (
+                          <MenuItem key={option} value={option}>
+                            {option}
+                          </MenuItem>
+                        ))}
+                      </TextField>
+                    </div>
+                    <div style={{width:"45%",display:"inline-block"}}>
+                      <TextField
+                        select
+                        required
+                        id="standard-required"
+                        label="Heater"
+                        style={{width:"100%"}}
+                        className={classes.textField}
+                        margin="normal"
+                        variant="standard"
+                      >
+                        {heater.map(option => (
+                          <MenuItem key={option} value={option}>
+                            {option}
+                          </MenuItem>
+                        ))}
+                      </TextField>
+                    </div>
+                    <div style={{width:"45%",display:"inline-block",marginRight:"10%"}}>
+                      <TextField
+                        select
+                        required
+                        id="standard-required"
+                        label="Washing Machine"
+                        style={{width:"100%"}}
+                        className={classes.textField}
+                        margin="normal"
+                        variant="standard"
+                      >
+                        {washing.map(option => (
+                          <MenuItem key={option} value={option}>
+                            {option}
+                          </MenuItem>
+                        ))}
+                      </TextField>
+                    </div>
+                    <div style={{width:"45%",display:"inline-block"}}>
+                      <TextField
+                        select
+                        required
+                        style={{width:"100%"}}
+                        id="standard-required"
+                        label="Suitable For Kids"
+                        className={classes.textField}
+                        margin="normal"
+                        variant="standard"
+                      >
+                      {kidsSuitable.map(option => (
+                      <MenuItem key={option} value={option}>
+                          {option}
+                      </MenuItem>
+                      ))}
+                      </TextField>
+                    </div>
+                  </div>
+                  <div style={{  width: "100%" }}>
+                    <FormControlLabel
+                      className={classes.align}
+                      control={
+                        <Checkbox
+                          checked={this.state.checkedB}
+                          onChange={this.handleChangeFacilities("coffee")}
+                          value="checkedB"
+                          color="primary"
+                        />
+                      }
+                      label="Coffee machine"
+                    />
+                    <FormControlLabel
+                      className={classes.align}
+                      control={
+                        <Checkbox
+                          checked={this.state.checkedB}
+                          onChange={this.handleChangeFacilities("water")}
+                          value="checkedB"
+                          color="primary"
+                        />
+                      }
+                      label="Dish-water"
+                    />
+                    <FormControlLabel
+                      className={classes.align}
+                      control={
+                        <Checkbox
+                          checked={this.state.checkedB}
+                          onChange={this.handleChangeFacilities("fridge")}
+                          value="checkedB"
+                          color="primary"
+                        />
+                      }
+                      label="Fridge"
+                    />
+                    <FormControlLabel
+                      className={classes.align}
+                      control={
+                        <Checkbox
+                          checked={this.state.checkedB}
+                          onChange={this.handleChangeFacilities("microwave")}
+                          value="checkedB"
+                          color="primary"
+                        />
+                      }
+                      label="Microwave"
+                    />
+                    <FormControlLabel
+                      className={classes.align}
+                      control={
+                        <Checkbox
+                          checked={this.state.checkedB}
+                          onChange={this.handleChangeFacilities("toaster")}
+                          value="checkedB"
+                          color="primary"
+                        />
+                      }
+                      label="Toaster"
+                    />
+                    <FormControlLabel
+                      className={classes.align}
+                      control={
+                        <Checkbox
+                          checked={this.state.checkedB}
+                          onChange={this.handleChangeFacilities("hall")}
+                          value="checkedB"
+                          color="primary"
+                        />
+                      }
+                      label="Hall"
+                    />
+                    <FormControlLabel
+                      className={classes.align}
+                      control={
+                        <Checkbox
+                          checked={this.state.checkedB}
+                          onChange={this.handleChangeFacilities("gas")}
+                          value="checkedB"
+                          color="primary"
+                        />
+                      }
+                      label="Gas Oven"
+                    />
+                    <FormControlLabel
+                      className={classes.align}
+                      control={
+                        <Checkbox
+                          checked={this.state.checkedB}
+                          onChange={this.handleChangeFacilities("freezer")}
+                          value="checkedB"
+                          color="primary"
+                        />
+                      }
+                      label="Freezer"
+                    />
+                    <FormControlLabel
+                      className={classes.align}
+                      control={
+                        <Checkbox
+                          checked={this.state.checkedB}
+                          onChange={this.handleChangeFacilities("kitchenWare")}
+                          value="checkedB"
+                          color="primary"
+                        />
+                      }
+                      label="Kitchenware"
+                    />
+                  </div>
                 </FormControl>
               </form>
             </DialogContent>
@@ -446,111 +612,7 @@ class Creation extends React.Component {
               </Button>
             </DialogActions>
           </Dialog>
-          <Dialog
-            open={this.state.openBath}
-            onClose={this.handleCloseBathroom}
-            scroll={this.state.scroll}
-            aria-labelledby="scroll-dialog-title"
-          >
-            <DialogTitle id="scroll-dialog-title">What's in Bathroom 1</DialogTitle>
-            <DialogContent>
-              <p>Define the bathroom features below</p>
-              <form autoComplete="off" style={{textAlign:'left'}}>
-                <FormControl className={classes.formControl} style={{width:'100%'}}>
-                    <div style={{width:"100%"}}>
-                      <TextField
-                        required
-                        select
-                        style={{width:"97%"}}
-                        id="standard-required"
-                        label="Bathroom type"
-                        className={classes.textField}
-                        margin="normal"
-                        variant="standard"
-                      >
-                      {bathType.map(option =>(
-                        <MenuItem key={option} value={option}>
-                          {option}
-                      </MenuItem>
-                      ))}
-                      </TextField>
-                    </div>
-                    <div style={{width:"100%"}}>
-                      <TextField
-                        required
-                        select
-                        style={{width:"97%"}}
-                        id="standard-required"
-                        label="Toilet"
-                        className={classes.textField}
-                        margin="normal"
-                        variant="standard"
-                      >
-                      {toilet.map(option =>(
-                        <MenuItem key={option} value={option}>
-                          {option}
-                      </MenuItem>
-                      ))}
-                      </TextField>
-                    </div>
-                    <div style={{width:"100%"}}>
-                      <TextField
-                        required
-                        select
-                        style={{width:"97%"}}
-                        id="standard-required"
-                        label="Shower"
-                        className={classes.textField}
-                        margin="normal"
-                        variant="standard"
-                      >
-                      {shower.map(option =>(
-                        <MenuItem key={option} value={option}>
-                          {option}
-                      </MenuItem>
-                      ))}
-                      </TextField>
-                    </div>
-                    <div style={{width:"100%"}}>
-                      <TextField
-                        required
-                        select
-                        style={{width:"97%"}}
-                        id="standard-required"
-                        label="Bath"
-                        className={classes.textField}
-                        margin="normal"
-                        variant="standard"
-                      >
-                      {bath.map(option =>(
-                        <MenuItem key={option} value={option}>
-                          {option}
-                      </MenuItem>
-                      ))}
-                      </TextField>
-                    </div>
-                </FormControl>
-              </form>
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={this.handleCloseBathroom} color="primary">
-                Save
-              </Button>
-            </DialogActions>
-          </Dialog>
         </div>
-          {/* <div style={{width:"20%",float:"left",marginTop:"10%"}}>
-            <Card className={classes.card}>
-              <CardHeader className={classes.title}
-                title="Where can your guests sleep?"
-              />
-              <CardContent>
-                <Typography component="p">
-                  Even if you offer a sofa-bed in the living room you can add living room as a bedroom.
-                </Typography>
-              </CardContent>
-            </Card>
-          </div> */}
       </div>
     );
   }

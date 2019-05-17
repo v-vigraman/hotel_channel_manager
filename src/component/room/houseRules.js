@@ -51,7 +51,6 @@ class HouseRules extends React.Component {
 
   render() {
     const { classes } = this.props;
-    let kidsSuitable = ['Children welcome','Great for children','Not suitable for children'];
     let wheelChair = ['Full access for wheelchairs','No access for wheelchairs','Some access for wheelchairs']
     let parties = ['Allowed','Not Allowed']
     let smoking = ['No smoking','Smoking allowed','Smoking outside'];
@@ -62,18 +61,18 @@ class HouseRules extends React.Component {
         <div style={{width:'100%'}}>
             <div className={classes.formAlign}>
                 <TextField
-                    select
                     required
+                    select 
                     id="standard-required"
-                    label="Suitable For Kids"
+                    label="Pets"
                     className={classes.textField}
                     margin="normal"
                     variant="standard"
                 >
-                {kidsSuitable.map(option => (
-                <MenuItem key={option} value={option}>
-                    {option}
-                </MenuItem>
+                {pets.map(option => (
+                        <MenuItem key={option} value={option}>
+                        {option}
+                        </MenuItem>
                 ))}
                 </TextField>
             </div>
@@ -143,23 +142,6 @@ class HouseRules extends React.Component {
                 </TextField>
             </div>
         </div>
-        <div style={{marginRight:'6%',width:"45%"}}>
-            <TextField
-                required
-                select 
-                id="standard-required"
-                label="Pets"
-                className={classes.textField}
-                margin="normal"
-                variant="standard"
-            >
-            {pets.map(option => (
-                    <MenuItem key={option} value={option}>
-                    {option}
-                    </MenuItem>
-            ))}
-            </TextField>
-        </div>
         <div style={{marginRight:'6%',width:"100%"}}>
             <TextField
                 id="standard-multiline-static"
@@ -173,7 +155,7 @@ class HouseRules extends React.Component {
         </div>
         </FormControl>
         <Button variant="contained" color="primary" className={classes.button}>
-            Next
+            Save
         </Button>
       </form>
     );

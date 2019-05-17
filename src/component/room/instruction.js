@@ -120,7 +120,7 @@ class Instruction extends React.Component {
         </div>
         </FormControl>
         <Button variant="contained" color="primary" className={classes.button}>
-            Next
+            Save
         </Button>
       </form>
     );

@@ -1,151 +1,132 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import classNames from 'classnames';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-
-
-
 const styles = theme => ({
-  button: {
-    display: 'block',
-    marginTop: theme.spacing.unit * 2,
+  root: {
+    width: '100%',
+    marginTop: theme.spacing.unit * 3,
+    overflowX: 'auto',
   },
-  rightIcon: {
-    marginLeft: theme.spacing.unit,
+  table: {
+    minWidth: 700,
   },
-  formControl: {
-    margin: theme.spacing.unit,
-    minWidth: 120,
-  },
-  formAlign:{
-      display:'inline-block',
-      width:'45%',
-      margin:'1%'
-  },
-  textField:{
-      width:'100%'
-  }
 });
 
 
-class BasicRates extends React.Component {
-  state = {
-    age: '',
-    typeOfRental:'',
-    rental:'',
-    open: false,
-  };
+function BasicRates(props) {
+  const { classes } = props;
 
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
+  return (
+    <Paper className={classes.root} style={{width:"98%"}}>
+      <Table className={classes.table}>
+        <TableHead>
+          <TableRow>
+            <TableCell style={{fontWeight:"bold",color:"black"}}>Rooms</TableCell>
+            <TableCell align="center" style={{fontWeight:"bold",color:"black"}}>Basic Rates</TableCell>
+            <TableCell align="center" style={{fontWeight:"bold",color:"black"}}>Weekend Rate</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow>
+            <TableCell component="th" scope="row">
+              Room 1
+            </TableCell>
+            <TableCell component="th" scope="row" align="center">
+              <TextField
+                id="filled-adornment-amount"
+                className={classNames(classes.margin, classes.textField)}
+                variant="filled"
+                label="Amount"
+                InputProps={{
+                  startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                }}
+              />
+            </TableCell>
+            <TableCell align="center">
+              <TextField
+                  id="filled-adornment-amount"
+                  className={classNames(classes.margin, classes.textField)}
+                  variant="filled"
+                  label="Amount"
 
-  handleClose = () => {
-    this.setState({ open: false });
-  };
 
-
-
-  render() {
-    const { classes } = this.props;
-    let minGuest=[];
-    let minStay=[];
-    let maxStay=[];
-    for(let i=1;i<=30;i++){
-        minGuest.push(i)
-    }
-    minStay.push(1+ " night")
-    for(let i=2;i<=14;i++){
-        minStay.push(i+" nights")
-    }
-    for(let i=7;i<=180;i++){
-        maxStay.push(i+ " nights");
-    }
-    return (
-      <form autoComplete="off" style={{textAlign:'left'}}>
-        <FormControl className={classes.formControl} style={{width:'50%'}}>
-        <div style={{width:'100%'}}>
-            <div className={classes.formAlign}>
-                <TextField
-                    required
-                    type="number"
-                    id="standard-required"
-                    label="Basic night"
-                    className={classes.textField}
-                    margin="normal"
-                    variant="standard"
+                  InputProps={{
+                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                  }}
                 />
-            </div>
-            <div className={classes.formAlign}>
-            <TextField
-                    required
-                    type="number"
-                    id="standard-required"
-                    label="Weekend night"
-                    className={classes.textField}
-                    margin="normal"
-                    variant="standard"
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell component="th" scope="row">
+              Room 2
+            </TableCell>
+            <TableCell component="th" align="center" scope="row">
+              <TextField
+                id="filled-adornment-amount"
+                className={classNames(classes.margin, classes.textField)}
+                variant="filled"
+                label="Amount"
+                InputProps={{
+                  startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                }}
+              />
+            </TableCell>
+            <TableCell align="center">
+              <TextField
+                  id="filled-adornment-amount"
+                  className={classNames(classes.margin, classes.textField)}
+                  variant="filled"
+                  label="Amount"
+
+
+                  InputProps={{
+                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                  }}
                 />
-            </div>
-        </div>
-        <div style={{marginRight:'6%',width:'50%'}}>
-            <TextField
-                required
-                select
-                id="standard-required"
-                label="Maximum guests"
-                className={classes.textField}
-                margin="normal"
-                variant="standard"
-            >
-            {minGuest.map(option => (
-                <MenuItem key={option} value={option}>
-                    {option}
-                </MenuItem>
-            ))}
-            </TextField>
-            <span>Allow additional guests for a fee?</span>
-            <TextField
-                required
-                select
-                id="standard-required"
-                label="Minimum stay"
-                className={classes.textField}
-                margin="normal"
-                variant="standard"
-            >
-            {minStay.map(option => (
-                <MenuItem key={option} value={option}>
-                    {option}
-                </MenuItem>
-            ))}
-            </TextField>
-            <TextField
-                required
-                select
-                id="standard-required"
-                label="Maximum Stay"
-                className={classes.textField}
-                margin="normal"
-                variant="standard"
-            >
-            {maxStay.map(option => (
-                <MenuItem key={option} value={option}>
-                    {option}
-                </MenuItem>
-            ))}
-            </TextField>
-        </div>
-        </FormControl>
-        <Button variant="contained" color="primary" className={classes.button}>
-            Next
-        </Button>
-      </form>
-    );
-  }
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell component="th" scope="row">
+              Room 3
+            </TableCell>
+            <TableCell component="th" scope="row" align="center">
+              <TextField
+                id="filled-adornment-amount"
+                className={classNames(classes.margin, classes.textField)}
+                variant="filled"
+                label="Amount"
+                InputProps={{
+                  startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                }}
+              />
+            </TableCell>
+            <TableCell align="center">
+              <TextField
+                  id="filled-adornment-amount"
+                  className={classNames(classes.margin, classes.textField)}
+                  variant="filled"
+                  label="Amount"
+
+
+                  InputProps={{
+                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                  }}
+                />
+            </TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </Paper>
+  );
 }
 
 BasicRates.propTypes = {

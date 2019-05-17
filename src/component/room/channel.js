@@ -17,7 +17,8 @@ import TextField from '@material-ui/core/TextField';
 
 const styles = theme => ({
   card: {
-    maxWidth: 400
+    maxWidth: 400,
+    marginRight:"2%"
   },
   media: {
     height: 0,
@@ -43,11 +44,25 @@ const styles = theme => ({
 
 
 class Channels extends React.Component {
-  state = { expanded: false, amount: 0 };
+  state = {
+     expanded1: false,
+     expanded2: false,
+     expanded3: false,
+     amount: 0 
+    };
 
-  handleExpandClick = () => {
-    this.setState(state => ({ expanded: !state.expanded }));
+  handleExpandClick1 = () => {
+    this.setState(state => ({ expanded1: !state.expanded1 }));
   };
+
+  handleExpandClick2 = () => {
+    this.setState(state => ({ expanded2: !state.expanded2 }));
+  };
+
+  handleExpandClick3 = () => {
+    this.setState(state => ({ expanded3: !state.expanded3 }));
+  };
+
   handleChange = prop => event => {
     this.setState({ [prop]: event.target.value });
   };
@@ -75,14 +90,14 @@ class Channels extends React.Component {
               className={classnames(classes.expand, {
                 [classes.expandOpen]: this.state.expanded
               })}
-              onClick={this.handleExpandClick}
+              onClick={this.handleExpandClick1}
               aria-expanded={this.state.expanded}
               aria-label="Show more"
             >
               <ExpandMoreIcon />
             </IconButton>
           </CardActions>
-          <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+          <Collapse in={this.state.expanded1} timeout="auto" unmountOnExit>
             <CardContent>
               <p style={{fontSize:'0.7em'}}>Specify the ammount display for specific OTA's from Basic Rates in (%)</p>
               <TextField
@@ -118,14 +133,14 @@ class Channels extends React.Component {
               className={classnames(classes.expand, {
                 [classes.expandOpen]: this.state.expanded
               })}
-              onClick={this.handleExpandClick}
+              onClick={this.handleExpandClick2}
               aria-expanded={this.state.expanded}
               aria-label="Show more"
             >
               <ExpandMoreIcon />
             </IconButton>
           </CardActions>
-          <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+          <Collapse in={this.state.expanded2} timeout="auto" unmountOnExit>
             <CardContent>
               <p style={{fontSize:'0.7em'}}>Specify the ammount display for specific OTA's from Basic Rates in (%)</p>
               <TextField
@@ -161,14 +176,14 @@ class Channels extends React.Component {
               className={classnames(classes.expand, {
                 [classes.expandOpen]: this.state.expanded
               })}
-              onClick={this.handleExpandClick}
+              onClick={this.handleExpandClick3}
               aria-expanded={this.state.expanded}
               aria-label="Show more"
             >
               <ExpandMoreIcon />
             </IconButton>
           </CardActions>
-          <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+          <Collapse in={this.state.expanded3} timeout="auto" unmountOnExit>
             <CardContent>
               <p style={{fontSize:'0.7em'}}>Specify the ammount display for specific OTA's from Basic Rates in (%)</p>
               <TextField
