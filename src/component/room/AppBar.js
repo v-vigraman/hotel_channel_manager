@@ -21,9 +21,7 @@ import Home from '@material-ui/icons/Home';
 import Photo from '@material-ui/icons/Photo';
 import WbSunny from '@material-ui/icons/WbSunny';
 import Loyalty from '@material-ui/icons/Loyalty';
-import AddBox from '@material-ui/icons/AddBox';
 import LibraryBooks from '@material-ui/icons/LibraryBooks';
-import AddToQueue from '@material-ui/icons/AddToQueue';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
@@ -32,7 +30,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 const drawerWidth = 230;
-
+const url ="www.codingmart.com/assets/codingmart.png";
 
 
 const styles = theme => ({
@@ -66,6 +64,8 @@ const styles = theme => ({
   },
   drawerPaper: {
     width: drawerWidth,
+    backgroundImage: `url(${url})`,
+    backgroundSize: 'contain'
   },
   drawerHeader: {
     display: 'flex',
@@ -73,6 +73,10 @@ const styles = theme => ({
     padding: '0 8px',
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
+    backgroundImage: "url(" + "https://www.codingmart.com/assets/codingmart.png" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
   },
   toolbar:theme.mixins.toolbar,
   content: {
@@ -95,7 +99,7 @@ const styles = theme => ({
     margin: theme.spacing.unit * 2,
   },
   appBarColor:{
-    backgroundColor: "#a15ea2",
+    backgroundColor: "#332e43",
   },
   sectionDesktop: {
     display: 'none',
@@ -178,7 +182,8 @@ class PersistentDrawerLeft extends React.Component {
         <CssBaseline />
         <AppBar
           position="fixed"
-          className={classNames(classes.appBar, classes.appBarColor, {
+          style={{backgroundColor: '#332e43'}}
+          className={classNames(classes.appBar, {
             [classes.appBarShift]: open,
           })}
         >
@@ -230,7 +235,7 @@ class PersistentDrawerLeft extends React.Component {
           anchor="left"
           open={open}
           classes={{
-            paper: classes.drawerPaper,
+            paper: classes.drawerPaper
           }}
         >
           <div className={classes.drawerHeader}>
@@ -240,10 +245,10 @@ class PersistentDrawerLeft extends React.Component {
           </div>
           <Divider />
           <List>
-            {['Hotel Details','Room Creation','Photos','Basic rates','Seasonal rates','Discounts','Booking rules','House Rules','Instructions','Channels'].map((text, index) => (
+            {['Hotel Details','Room Creation','Photos','Basic rates','Seasonal rates','Discounts','Booking rules','Instructions','Channels'].map((text, index) => (
               <ListItem button key={text} onClick={ () => this.props.onSelectOption(index,this.props.channels)} >
                 <ListItemIcon>{(index === 0 )? 
-                                  <LocationOn/>:(index ===1)? <Home/>:(index===2)? <Photo/>:(index===4)?<WbSunny/>:(index===5)?<Loyalty/>:(index===6)?<AddBox/>:(index===7)?<LibraryBooks/>:(index===9)?<AddToQueue/>:<LibraryBooks/>              
+                                  <LocationOn/>:(index ===1)? <Home/>:(index===2)? <Photo/>:(index===4)?<WbSunny/>:(index===5)?<Loyalty/>:<LibraryBooks/>
                                }
                                               
                 </ListItemIcon>
