@@ -23,6 +23,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Photos from './photos'
+import MapPhotos from './mapPhotos'
 
 const styles = theme => ({
   container: {
@@ -93,6 +94,7 @@ class Creation extends React.Component {
   };
 
   handleClickOpenPhotos = scroll => () => {
+    debugger
     this.setState({ openPhotos: true, scroll });
   };
 
@@ -130,37 +132,18 @@ class Creation extends React.Component {
 
     return (
       <div style={{width:"100%"}}>
-        <div style={{width:"50%",marginBottom:"10%",float:"left"}}>
+        <div style={{width:"100%",marginBottom:"10%",float:"left"}}>
         <form className={classNames(classes.container, classes.formTemplate)} style={{textAlign:"left",marginBottom:"2%"}} noValidate autoComplete="off">
-          <FormControl className={classes.formControl} style={{width:'100%'}}>
-            <div style={{marginRight:'6%',width:'50%'}}>
-                <TextField
-                    required
-                    select
-                    id="standard-required"
-                    label="Number of Different rooms"
-                    className={classes.textField}
-                    margin="normal"
-                    style={{width:'100%'}}
-                    variant="standard"
-                >
-                {bedRoom.map(option => (
-                    <MenuItem key={option} value={option}>
-                        {option}
-                    </MenuItem>
-                ))}
-                </TextField>
-            </div>
-            <div style={{marginRight:'6%',width:'50%'}}>
+          <FormControl className={classes.formControl} style={{display:"block"}}>
+            <div style={{marginTop:'2%',display:'inline-block',marginRight:'2%',width:"27%"}}>
             <Card  style={{width:"100%"}}>
               <CardHeader
                 title="Room 1"
               />
               <CardContent>
                 <Typography component="p">
-                Living room
-
-                Bunk-bed, 2 x Double bed
+                2 Floor, Delux Room, King bed, Air conditioning,
+                Without kitchen, Electric Heating
                 </Typography>
               </CardContent>
               <CardActions className={classes.actions} disableActionSpacing>
@@ -179,12 +162,81 @@ class Creation extends React.Component {
                 <IconButton aria-label="contentCopy">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
                 </IconButton>
-                <IconButton onClick={this.handleClickOpenPhotos}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>								
-                </IconButton>
+                <MapPhotos/>
               </CardActions>
             </Card>
             </div>
+            <div style={{marginTop:'2%',display:'inline-block',marginRight:'2%',width:"27%"}}>
+            <Card  style={{width:"100%"}}>
+              <CardHeader
+                title="Room 2"
+              />
+              <CardContent>
+                <Typography component="p">
+                2 Floor, Standard Room, Queen bed, Air conditioning,
+                With kitchen, Electric Heating
+                </Typography>
+              </CardContent>
+              <CardActions className={classes.actions} disableActionSpacing>
+                <IconButton aria-label="edit" onClick={this.handleClickOpen('body')}>
+                  <Edit />
+                </IconButton>
+                <IconButton className={classnames(classes.expand, {
+                    [classes.expandOpen]: this.state.expanded,
+                  })}
+                  onClick={this.handleExpandClick}
+                  aria-expanded={this.state.expanded}
+                  aria-label="Show more"
+                >
+                  <Delete/>
+                </IconButton>
+                <IconButton aria-label="contentCopy">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                </IconButton>
+                <MapPhotos/>
+              </CardActions>
+            </Card>
+            </div>
+            <div style={{marginTop:'2%',display:'inline-block',marginRight:'2%',width:"27%"}}>
+            <Card  style={{width:"100%"}}>
+              <CardHeader
+                title="Room 3"
+              />
+              <CardContent>
+                <Typography component="p">
+                2 Floor, Delux Room, King bed, Air conditioning,
+                Without kitchen, Electric Heating
+                </Typography>
+              </CardContent>
+              <CardActions className={classes.actions} disableActionSpacing>
+                <IconButton aria-label="edit" onClick={this.handleClickOpen('body')}>
+                  <Edit />
+                </IconButton>
+                <IconButton className={classnames(classes.expand, {
+                    [classes.expandOpen]: this.state.expanded,
+                  })}
+                  onClick={this.handleExpandClick}
+                  aria-expanded={this.state.expanded}
+                  aria-label="Show more"
+                >
+                  <Delete/>
+                </IconButton>
+                <IconButton aria-label="contentCopy">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                </IconButton>
+                <MapPhotos/>
+              </CardActions>
+            </Card>
+            </div>
+            <div className={classes.card} style={{display:'inline-block',marginRight:'2%',width:"10%"}}>
+          <Card className={classes.cardCreation}>
+          <CardContent onClick={this.handleClickOpen('body')} >
+            <Typography component="p">
+              <img src="https://img.icons8.com/ios/50/000000/add-rule.png" alt="add"/>
+            </Typography>
+          </CardContent>
+          </Card>
+        </div>
             <h3>Other Rooms</h3>
             <Divider component="p" />
             <div style={{marginRight:'6%',width:'75%'}}>

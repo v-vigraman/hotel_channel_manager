@@ -3,7 +3,6 @@ import './App.css';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from './component/room/AppBar';
 import Creation from './component/room/creation'
-import Photos from './component/room/photos'
 import HotelDetails from './component/room/hotelDetails'
 import BasicRates from './component/room/basicRates'
 import SeasonRates from './component/room/seasonRates'
@@ -49,16 +48,15 @@ class Room extends React.Component{
                 <div>
                     <AppBar  onSelectOption={this.handleOption}/>
                 </div>
-                <div style={{marginLeft:'20%',marginBottom:"15%"}}>
+                <div style={{marginLeft: "22%",marginBottom: "15%",marginRight: "15%"}}>
                 {(this.showOption(this.state))?
                         <HotelDetails/>:(this.state.indexing ===1)?
                         <Creation/>:(this.state.indexing ===2 )?
-                        <Photos/>:(this.state.indexing ===3 )?
-                        <BasicRates/>:(this.state.indexing ===4)? 
-                        <SeasonRates/>:(this.state.indexing ===5)? 
-                        <Discount/>:(this.state.indexing===6)?
-                        <BookingRules/>:(this.state.indexing===7)?
-                        <Instruction/>:(this.state.indexing===8)?
+                        <BasicRates/>:(this.state.indexing ===3)? 
+                        <SeasonRates/>:(this.state.indexing ===4)? 
+                        <Discount/>:(this.state.indexing===5)?
+                        <BookingRules/>:(this.state.indexing===6)?
+                        <Instruction/>:(this.state.indexing===7)?
                         <Channels/>:null
                 }
                 </div>

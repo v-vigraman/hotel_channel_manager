@@ -356,10 +356,10 @@ class Location extends React.Component {
             margin="normal"
             variant="standard"
         />
+        </FormControl>
         <Button variant="contained" color="primary" className={classes.button}>
             Save
         </Button>
-        </FormControl>
       </form>
     );
   }

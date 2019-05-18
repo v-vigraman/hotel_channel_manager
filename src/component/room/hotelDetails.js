@@ -27,7 +27,7 @@ const styles = theme => ({
   root: {
     marginTop:"2%",
     backgroundColor: theme.palette.background.paper,
-    width: "59%",
+    width: "100%",
   },
 });
 

@@ -18,7 +18,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import LocationOn from '@material-ui/icons/LocationOn';
 import Home from '@material-ui/icons/Home';
-import Photo from '@material-ui/icons/Photo';
 import WbSunny from '@material-ui/icons/WbSunny';
 import Loyalty from '@material-ui/icons/Loyalty';
 import LibraryBooks from '@material-ui/icons/LibraryBooks';
@@ -30,7 +29,6 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 const drawerWidth = 230;
-const url ="www.codingmart.com/assets/codingmart.png";
 
 
 const styles = theme => ({
@@ -64,8 +62,7 @@ const styles = theme => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    backgroundImage: `url(${url})`,
-    backgroundSize: 'contain'
+
   },
   drawerHeader: {
     display: 'flex',
@@ -73,7 +70,7 @@ const styles = theme => ({
     padding: '0 8px',
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
-    backgroundImage: "url(" + "https://www.codingmart.com/assets/codingmart.png" + ")",
+    backgroundImage: "url("+"https://www.codingmart.com/assets/codingmart.png"+")",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat'
@@ -115,6 +112,10 @@ const styles = theme => ({
   },
   grow: {
     flexGrow: 1,
+  },
+  listItemText:{
+    fontSize:'0.89em'
+
   }
 
 });
@@ -244,15 +245,15 @@ class PersistentDrawerLeft extends React.Component {
             </IconButton>
           </div>
           <Divider />
-          <List>
-            {['Hotel Details','Room Creation','Photos','Basic rates','Seasonal rates','Discounts','Booking rules','Instructions','Channels'].map((text, index) => (
-              <ListItem button key={text} onClick={ () => this.props.onSelectOption(index,this.props.channels)} >
+          <List >
+            {['Hotel Details','Room Creation','Basic rates','Seasonal rates','Discounts','Booking rules','Instructions','Channels'].map((text, index) => (
+              <ListItem button key={text} onClick={ () => this.props.onSelectOption(index,this.props.channels)}  >
                 <ListItemIcon>{(index === 0 )? 
-                                  <LocationOn/>:(index ===1)? <Home/>:(index===2)? <Photo/>:(index===4)?<WbSunny/>:(index===5)?<Loyalty/>:<LibraryBooks/>
+                                  <LocationOn/>:(index ===1)? <Home/>:(index===3)? <WbSunny/>:(index===5)?<Loyalty/>:<LibraryBooks/>
                                }
                                               
                 </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={text} classes={{primary:classes.listItemText}} />
               </ListItem>
             ))}
           </List>
