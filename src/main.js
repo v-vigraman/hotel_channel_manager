@@ -39,15 +39,15 @@ class Main extends React.Component{
     render(){
         return (
             <div className="App">
-            <div>
-                <AppBar  onSelectOption={this.handleOption} channels={this.state.channelList}/>
-            </div>
-            <div style={{marginLeft:'20%',marginTop:'2%'}}>
-            {this.showOption(this.state)?
-                <Creation channelList={this.handleChannelList} channels={this.state.channelList}/>: (this.state.indexing===1)?
-                 <ChannelManagement  channelList={this.state.channelList}/>:false
-            }
-            </div>
+                <div>
+                    <AppBar  onSelectOption={this.handleOption} channels={this.state.channelList}/>
+                </div>
+                <div style={{marginLeft:'20%',marginTop:'2%'}}>
+                {this.showOption(this.state)?
+                    <Creation channelList={this.handleChannelList} channels={this.state.channelList}/>: (this.state.indexing===1)?
+                    <ChannelManagement  channelList={this.state.channelList}/>:false
+                }
+                </div>
             </div>
         )
     }

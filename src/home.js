@@ -5,6 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Dashboard from './dashboard'
+
 const styles = {
   root: {
     flexGrow: 1,
@@ -25,7 +26,8 @@ function Home(props) {
       </AppBar>
       <div style={{marginTop:'20%',marginLeft:'30%',marginRight:'30%'}}>
             <Dashboard />
-       </div>
+      </div>
+
     </div>
   );
 }

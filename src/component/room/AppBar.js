@@ -34,7 +34,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 
 
@@ -118,6 +118,7 @@ const styles = theme => ({
 
 });
 
+
 class PersistentDrawerLeft extends React.Component {
   state = {
     open: false,
@@ -160,7 +161,7 @@ class PersistentDrawerLeft extends React.Component {
     const { open } = this.state;
     const { anchorEl } = this.state;
     const isMenuOpen = Boolean(anchorEl);
-
+    const img = <img style={{marginTop: 10}}src="https://unsplash.it/40/40"/>
     const renderMenu = (
       <Menu
         anchorEl={anchorEl}
